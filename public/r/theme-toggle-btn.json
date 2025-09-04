@@ -1,11 +1,12 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "hello-world",
+  "name": "theme-toggle-btn",
   "type": "registry:component",
-  "title": "Hello World",
-  "description": "A simple hello world component",
+  "title": "Theme Toggle Button",
+  "description": "Used to toggle between light, dark and keross themes",
   "registryDependencies": [
-    "card"
+    "button",
+    "dropdown-menu"
   ],
   "files": [
     {

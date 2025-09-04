@@ -2,13 +2,16 @@
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "Custom Components",
   "homepage": "https://custom-components-sable.vercel.app/",
+  "dependencies": {
+    "next-themes": "^0.4.6"
+  },
   "items": [
     {
-      "name": "hello-world",
+      "name": "theme-toggle-btn",
       "type": "registry:component",
-      "title": "Hello World",
-      "description": "A simple hello world component",
-      "registryDependencies": ["card"],
+      "title": "Theme Toggle Button",
+      "description": "Used to toggle between light, dark and keross themes",
+      "registryDependencies": ["button", "dropdown-menu"],
       "files": [
         {
           "path": "registry/new-york/helloWorld.tsx",
@@ -16,6 +19,5 @@
         }
       ]
     }
-   
   ]
 }
