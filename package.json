@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "registry:build": "shadcn build"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -15,6 +16,7 @@
     "next": "15.5.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "shadcn": "^2.9.3-canary.0",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {

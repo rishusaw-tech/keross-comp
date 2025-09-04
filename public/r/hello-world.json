@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hello-world",
+  "type": "registry:component",
+  "title": "Hello World",
+  "description": "A simple hello world component",
+  "registryDependencies": [
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/helloWorld.tsx",
+      "content": "import {\r\n  Card,\r\n  CardAction,\r\n  CardContent,\r\n  CardDescription,\r\n  CardFooter,\r\n  CardHeader,\r\n  CardTitle,\r\n} from \"@/components/ui/card\";\r\n\r\nfunction HelloWorld() {\r\n  return (\r\n    <>\r\n      <Card>\r\n        <CardHeader>\r\n          <CardTitle>Hello World</CardTitle>\r\n          <CardDescription>Have a nice day</CardDescription>\r\n        </CardHeader>\r\n      </Card>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default HelloWorld;\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}
