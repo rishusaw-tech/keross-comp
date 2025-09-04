@@ -1,3 +1,14 @@
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/registry/new-york/alert-dialog";
 import { Alert, AlertDescription, AlertTitle } from "@/registry/new-york/alert";
 import {
   Avatar,
@@ -44,13 +55,33 @@ export default function Home() {
           <Edit /> Edit Lead
         </Button>
       </div>
-      <div className="flex flex-row gap-5 mb-2">
+      <div className="flex flex-row gap-5 mb-5">
         <Button size="circular" variant="outline">
           <X />
         </Button>
         <Button size="circular" variant="secondary">
           <X />
         </Button>
+      </div>
+
+      <div className="mb-2">Alert Box</div>
+      <div className="flex flex-row gap-5 mb-2">
+        <AlertDialog>
+          <AlertDialogTrigger>Open</AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone. This will permanently delete your
+                account and remove your data from our servers.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction>Continue</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </div>
     </div>
   );
