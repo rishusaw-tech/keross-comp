@@ -11,7 +11,10 @@
       "type": "registry:component",
       "title": "Theme Toggle Button",
       "description": "Used to toggle between light, dark and keross themes",
-      "registryDependencies": ["button", "dropdown-menu"],
+      "registryDependencies": [
+        "https://custom-components-sable.vercel.app/r/button.json", 
+        "dropdown-menu"
+      ],
       "files": [
         {
           "path": "registry/new-york/theme-toggle-btn.tsx",
@@ -27,6 +30,38 @@
       "files": [
         {
           "path": "registry/new-york/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:component",
+      "title": "Avatar",
+      "description": "Avatar component using @radix-ui/react-avatar",
+      "externalDependencies": {
+        "@radix-ui/react-avatar": "^1.1.10"
+      },
+      "files": [
+        {
+          "path": "registry/new-york/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "A flexible button component built with class-variance-authority and Radix Slot for extensibility.",
+      "registryDependencies": [],
+      "externalDependencies": {
+        "@radix-ui/react-slot": "^1.0.2",
+        "class-variance-authority": "^0.7.1"
+      },
+      "files": [
+        {
+          "path": "registry/new-york/button.tsx",
           "type": "registry:ui"
         }
       ]

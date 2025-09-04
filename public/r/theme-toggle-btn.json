@@ -5,7 +5,7 @@
   "title": "Theme Toggle Button",
   "description": "Used to toggle between light, dark and keross themes",
   "registryDependencies": [
-    "button",
+    "https://custom-components-sable.vercel.app/r/button.json",
     "dropdown-menu"
   ],
   "files": [
