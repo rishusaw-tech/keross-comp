@@ -14,7 +14,19 @@
       "registryDependencies": ["button", "dropdown-menu"],
       "files": [
         {
-          "path": "registry/new-york/helloWorld.tsx",
+          "path": "registry/new-york/theme-toggle-btn.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:component",
+      "title": "Alert",
+      "description": "alert component",
+      "files": [
+        {
+          "path": "registry/new-york/alert.tsx",
           "type": "registry:ui"
         }
       ]
