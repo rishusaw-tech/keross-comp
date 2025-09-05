@@ -46,6 +46,16 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/registry/new-york/accordion";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/registry/new-york/dialog";
 
 export default function Home() {
   const [open, setOpen] = React.useState(false);
@@ -219,14 +229,70 @@ export default function Home() {
             </form>
           </CardContent>
           <CardFooter className="flex-col gap-2">
-            <Button type="submit" variant={"outline"} className="w-full dark:bg-[#121212]">
+            <Button
+              type="submit"
+              variant={"outline"}
+              className="w-full dark:bg-[#121212]"
+            >
               Login
             </Button>
-            <Button variant="secondary"  className="w-full dark:bg-primary dark:text-background">
+            <Button
+              variant="secondary"
+              className="w-full dark:bg-primary dark:text-background"
+            >
               Login with Google
             </Button>
           </CardFooter>
         </Card>
+      </div>
+
+      {/* ------------------------------------ Dialogue ------------------------------------ */}
+      <div className="mb-2 text-2xl">Dialogue</div>
+      <div className="flex flex-row gap-5 mb-5">
+        <Dialog>
+          <form>
+            <DialogTrigger asChild>
+              <Button variant="outline">Open Dialog</Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle>Edit profile</DialogTitle>
+                <DialogDescription>
+                  <p>Make changes to your profile here. </p>
+                  <p>Click save when you are done.</p>
+                </DialogDescription>
+              </DialogHeader>
+              <div className="grid gap-4">
+                <div className="grid gap-3">
+                  <Label htmlFor="name-1">Name</Label>
+                  <Input id="name-1" name="name" defaultValue="Pedro Duarte" />
+                </div>
+                <div className="grid gap-3">
+                  <Label htmlFor="username-1">Username</Label>
+                  <Input
+                    id="username-1"
+                    name="username"
+                    defaultValue="@peduarte"
+                  />
+                </div>
+              </div>
+              <DialogFooter className="w-auto">
+                <DialogClose asChild>
+                  <Button variant="outline" className="dark:bg-[#121212]">
+                    Cancel
+                  </Button>
+                </DialogClose>
+                <Button
+                  type="submit"
+                  variant={"secondary"}
+                  className="dark:bg-primary dark:text-background"
+                >
+                  Save changes
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </form>
+        </Dialog>
       </div>
     </div>
   );
