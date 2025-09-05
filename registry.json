@@ -12,7 +12,7 @@
       "title": "Theme Toggle Button",
       "description": "Used to toggle between light, dark and keross themes",
       "registryDependencies": [
-        "https://custom-components-sable.vercel.app/r/button.json", 
+        "https://custom-components-sable.vercel.app/r/button.json",
         "dropdown-menu"
       ],
       "files": [
@@ -62,6 +62,40 @@
       "files": [
         {
           "path": "registry/new-york/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:component",
+      "title": "Alert Dialog",
+      "description": "A custom Alert Dialog component built using @radix-ui/react-alert-dialog.",
+      "externalDependencies": {
+        "@radix-ui/react-alert-dialog": "^1.0.0"
+      },
+      "registryDependencies": [
+        "https://custom-components-sable.vercel.app/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:component",
+      "title": "Accordion",
+      "description": "A flexible accordion component built with @radix-ui/react-accordion.",
+      "externalDependencies": {
+        "@radix-ui/react-accordion": "^1.0.0",
+        "lucide-react": "^0.276.0"
+      },
+      "files": [
+        {
+          "path": "registry/new-york/accordion.tsx",
           "type": "registry:ui"
         }
       ]

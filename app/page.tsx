@@ -17,12 +17,56 @@ import {
 } from "@/registry/new-york/avatar";
 import { Button } from "@/registry/new-york/button";
 import { CheckCircle2Icon, Cross, Edit, Save, Share2, X } from "lucide-react";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/registry/new-york/accordion";
 
 export default function Home() {
   return (
-    <div className="m-5 flex flex-col">
-      <div className="mb-2">Alert</div>
-      <div className="w-xl mb-5">
+    <div className="flex flex-col w-1/2 mx-auto">
+
+      {/* ------------------------------------ Accordion ------------------------------------ */}
+      <div className="mb-2 text-2xl">Accordion</div>
+      <div className="mb-5">
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full"
+          defaultValue="item-1"
+        >
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Is it accessible</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>
+               Yes, it is accessible
+              </p>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>Is it styles</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>
+                Yes, it is styled
+              </p>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <AccordionTrigger>Is it animated</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>
+                Yes, it is animated
+              </p>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+
+       {/* ------------------------------------ Alert ------------------------------------ */}
+      <div className="mb-2 text-2xl">Alert</div>
+      <div className="mb-5">
         <Alert>
           <CheckCircle2Icon />
           <AlertTitle>Success! Your changes have been saved</AlertTitle>
@@ -32,7 +76,8 @@ export default function Home() {
         </Alert>
       </div>
 
-      <div className="mb-2">Avatar</div>
+       {/* ------------------------------------ Avatar ------------------------------------ */}
+      <div className="mb-2 text-2xl">Avatar</div>
       <div className="flex flex-row gap-5 mb-5">
         <Avatar>
           <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
@@ -43,7 +88,8 @@ export default function Home() {
         </Avatar>
       </div>
 
-      <div className="mb-2">Buttons</div>
+       {/* ------------------------------------ Buttons ------------------------------------ */}
+      <div className="mb-2 text-2xl">Buttons</div>
       <div className="flex flex-row gap-5 mb-2">
         <Button size="default" variant="outline">
           <Share2 /> Share
@@ -64,10 +110,11 @@ export default function Home() {
         </Button>
       </div>
 
-      <div className="mb-2">Alert Box</div>
-      <div className="flex flex-row gap-5 mb-2">
+       {/* ------------------------------------ Alert Box ------------------------------------ */}
+      <div className="mb-2 text-2xl">Alert Box</div>
+      <div className="flex flex-row gap-5 mb-5">
         <AlertDialog>
-          <AlertDialogTrigger>Open</AlertDialogTrigger>
+          <Button variant={"outline"}><AlertDialogTrigger>Open</AlertDialogTrigger></Button>
           <AlertDialogContent>
             <AlertDialogHeader>
               <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
