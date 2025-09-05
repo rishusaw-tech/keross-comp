@@ -10,7 +10,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button"
+import { Button } from "./button"
+
 
 export function ThemeToggleBtn() {
   const { theme, setTheme } = useTheme()

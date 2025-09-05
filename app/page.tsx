@@ -29,6 +29,16 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+} from "@/registry/new-york/card";
+import { Input } from "@/registry/new-york/input";
 
 import {
   Accordion,
@@ -105,7 +115,7 @@ export default function Home() {
         <Button size="default" variant="outline">
           <Save /> Save
         </Button>
-        <Button size="default" variant="secondary">
+        <Button size="default" variant={"default"}>
           <Edit /> Edit Lead
         </Button>
       </div>
@@ -166,6 +176,57 @@ export default function Home() {
         className="rounded-md border shadow-sm mb-5"
         captionLayout="dropdown"
       />
+
+      {/* ------------------------------------ Card ------------------------------------ */}
+      <div className="mb-2 text-2xl">Card</div>
+      <div className="flex flex-row gap-5 mb-5">
+        <Card className="w-full max-w-sm">
+          <CardHeader>
+            <CardDescription>Login to your account</CardDescription>
+            <CardTitle>
+              Enter your email below to login to your account
+            </CardTitle>
+            <CardAction>
+              <Button variant="link">Sign Up</Button>
+            </CardAction>
+          </CardHeader>
+          <CardContent>
+            <form>
+              <div className="flex flex-col gap-6">
+                <div className="grid gap-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="m@example.com"
+                    required
+                  />
+                </div>
+                <div className="grid gap-2">
+                  <div className="flex items-center">
+                    <Label htmlFor="password">Password</Label>
+                    <a
+                      href="#"
+                      className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+                    >
+                      Forgot your password?
+                    </a>
+                  </div>
+                  <Input id="password" type="password" required />
+                </div>
+              </div>
+            </form>
+          </CardContent>
+          <CardFooter className="flex-col gap-2">
+            <Button type="submit" variant={"outline"} className="w-full dark:bg-[#121212]">
+              Login
+            </Button>
+            <Button variant="secondary"  className="w-full dark:bg-primary dark:text-background">
+              Login with Google
+            </Button>
+          </CardFooter>
+        </Card>
+      </div>
     </div>
   );
 }
