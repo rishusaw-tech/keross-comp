@@ -180,6 +180,7 @@ export default function Home() {
         </AlertDialog>
       </div>
 
+       {/* ------------------------------------ Calandar ------------------------------------ */}
       <Label htmlFor="date" className="mb-2 text-2xl">
         Date of birth
       </Label>
@@ -206,8 +207,9 @@ export default function Home() {
         captionLayout="dropdown"
       />
 
-      <h3 className="mb-4">Checkbox</h3>
-      <div className="flex flex-col gap-6 mb-4">
+      {/* ------------------------------------ Checkbox ------------------------------------ */}
+      <div className="mb-2 text-2xl">Checkbox</div>
+      <div className="flex flex-col gap-6 mb-5">
         <div className="flex items-center gap-3">
           <Checkbox id="terms" />
           <Label htmlFor="terms">Recent</Label>
@@ -248,11 +250,12 @@ export default function Home() {
       </div>
 
       
-    <div className="mb-4 h-[300px]">
-
+    <div className="mb-4 h-[250px]">
+      {/* ------------------------------------ Dropdown ------------------------------------ */}
+      <div className="mb-2 text-2xl">Dropdown</div>
       <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open</Button>
+        <Button variant={"outline"} className="bg-card">Open</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>Appearance</DropdownMenuLabel>
