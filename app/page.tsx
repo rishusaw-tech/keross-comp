@@ -1,5 +1,18 @@
 "use client";
+import { Checkbox } from "@/registry/new-york/checkbox";
 
+
+import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu"
+
+
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -60,6 +73,12 @@ import {
 export default function Home() {
   const [open, setOpen] = React.useState(false);
   const [date, setDate] = React.useState<Date | undefined>(undefined);
+  type Checked = DropdownMenuCheckboxItemProps["checked"]
+
+
+  const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true)
+  const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false)
+  const [showPanel, setShowPanel] = React.useState<Checked>(false)
   return (
     <div className="flex flex-col w-1/2 mx-auto">
       {/* ------------------------------------ Accordion ------------------------------------ */}
@@ -161,7 +180,6 @@ export default function Home() {
         </AlertDialog>
       </div>
 
-      {/* ------------------------------------ Calendar ------------------------------------ */}
       <Label htmlFor="date" className="mb-2 text-2xl">
         Date of birth
       </Label>
@@ -187,6 +205,83 @@ export default function Home() {
         className="rounded-md border shadow-sm mb-5"
         captionLayout="dropdown"
       />
+
+      <h3 className="mb-4">Checkbox</h3>
+      <div className="flex flex-col gap-6 mb-4">
+        <div className="flex items-center gap-3">
+          <Checkbox id="terms" />
+          <Label htmlFor="terms">Recent</Label>
+        </div>
+
+        <div className="flex items-start gap-3">
+          <Checkbox id="terms-2" defaultChecked />
+          <div className="grid gap-2">
+            <Label htmlFor="terms-2">Home</Label>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-3">
+          <Checkbox id="terms-2" defaultChecked />
+          <div className="grid gap-2">
+            <Label htmlFor="terms-2">Applications</Label>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-3">
+          <Checkbox id="terms-2" defaultChecked />
+          <div className="grid gap-2">
+            <Label htmlFor="terms-2">Desktop</Label>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-3">
+          <Checkbox id="terms-2" defaultChecked />
+          <div className="grid gap-2">
+            <Label htmlFor="terms-2">Downloads</Label>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-3">
+          <Checkbox id="toggle" disabled />
+          <Label htmlFor="toggle">Enable notifications</Label>
+        </div>
+      </div>
+
+      
+    <div className="mb-4 h-[300px]">
+
+      <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline">Open</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56">
+        <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuCheckboxItem
+          checked={showStatusBar}
+          onCheckedChange={setShowStatusBar}
+        >
+          Status Bar
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem
+          checked={showActivityBar}
+          onCheckedChange={setShowActivityBar}
+          disabled
+        >
+          Activity Bar
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem
+          checked={showPanel}
+          onCheckedChange={setShowPanel}
+        >
+          Panel
+        </DropdownMenuCheckboxItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+    </div>
+  
+
+
 
       {/* ------------------------------------ Card ------------------------------------ */}
       <div className="mb-2 text-2xl">Card</div>
