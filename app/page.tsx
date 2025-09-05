@@ -159,7 +159,7 @@ export default function Home() {
           <Button
             variant="secondary"
             id="date"
-            className="w-48 justify-between font-normal mb-2"
+            className="w-48 justify-between font-normal mb-2 dark:bg-card"
           >
             {date ? date.toLocaleDateString() : "Select date"}
             <ChevronDownIcon />
