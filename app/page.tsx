@@ -1,3 +1,5 @@
+"use client";
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -17,6 +19,17 @@ import {
 } from "@/registry/new-york/avatar";
 import { Button } from "@/registry/new-york/button";
 import { CheckCircle2Icon, Cross, Edit, Save, Share2, X } from "lucide-react";
+import * as React from "react";
+import { ChevronDownIcon } from "lucide-react";
+
+import { Calendar } from "@/components/ui/calendar";
+import { Label } from "@/components/ui/label";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+
 import {
   Accordion,
   AccordionItem,
@@ -25,9 +38,10 @@ import {
 } from "@/registry/new-york/accordion";
 
 export default function Home() {
+  const [open, setOpen] = React.useState(false);
+  const [date, setDate] = React.useState<Date | undefined>(undefined);
   return (
     <div className="flex flex-col w-1/2 mx-auto">
-
       {/* ------------------------------------ Accordion ------------------------------------ */}
       <div className="mb-2 text-2xl">Accordion</div>
       <div className="mb-5">
@@ -40,31 +54,25 @@ export default function Home() {
           <AccordionItem value="item-1">
             <AccordionTrigger>Is it accessible</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>
-               Yes, it is accessible
-              </p>
+              <p>Yes, it is accessible</p>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger>Is it styles</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>
-                Yes, it is styled
-              </p>
+              <p>Yes, it is styled</p>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger>Is it animated</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>
-                Yes, it is animated
-              </p>
+              <p>Yes, it is animated</p>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
       </div>
 
-       {/* ------------------------------------ Alert ------------------------------------ */}
+      {/* ------------------------------------ Alert ------------------------------------ */}
       <div className="mb-2 text-2xl">Alert</div>
       <div className="mb-5">
         <Alert>
@@ -76,7 +84,7 @@ export default function Home() {
         </Alert>
       </div>
 
-       {/* ------------------------------------ Avatar ------------------------------------ */}
+      {/* ------------------------------------ Avatar ------------------------------------ */}
       <div className="mb-2 text-2xl">Avatar</div>
       <div className="flex flex-row gap-5 mb-5">
         <Avatar>
@@ -88,7 +96,7 @@ export default function Home() {
         </Avatar>
       </div>
 
-       {/* ------------------------------------ Buttons ------------------------------------ */}
+      {/* ------------------------------------ Buttons ------------------------------------ */}
       <div className="mb-2 text-2xl">Buttons</div>
       <div className="flex flex-row gap-5 mb-2">
         <Button size="default" variant="outline">
@@ -110,11 +118,13 @@ export default function Home() {
         </Button>
       </div>
 
-       {/* ------------------------------------ Alert Box ------------------------------------ */}
+      {/* ------------------------------------ Alert Box ------------------------------------ */}
       <div className="mb-2 text-2xl">Alert Box</div>
       <div className="flex flex-row gap-5 mb-5">
         <AlertDialog>
-          <Button variant={"outline"}><AlertDialogTrigger>Open</AlertDialogTrigger></Button>
+          <Button variant={"outline"}>
+            <AlertDialogTrigger>Open</AlertDialogTrigger>
+          </Button>
           <AlertDialogContent>
             <AlertDialogHeader>
               <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
@@ -130,6 +140,32 @@ export default function Home() {
           </AlertDialogContent>
         </AlertDialog>
       </div>
+
+      <Label htmlFor="date" className="mb-2 text-2xl">
+        Date of birth
+      </Label>
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <Button
+            variant="secondary"
+            id="date"
+            className="w-48 justify-between font-normal mb-2"
+          >
+            {date ? date.toLocaleDateString() : "Select date"}
+            <ChevronDownIcon />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent
+          className="w-auto overflow-hidden p-0"
+          align="start"
+        ></PopoverContent>
+      </Popover>
+
+      <Calendar
+        mode="single"
+        className="rounded-md border shadow-sm mb-5"
+        captionLayout="dropdown"
+      />
     </div>
   );
 }
