@@ -151,6 +151,7 @@ export default function Home() {
         </AlertDialog>
       </div>
 
+      {/* ------------------------------------ Calendar ------------------------------------ */}
       <Label htmlFor="date" className="mb-2 text-2xl">
         Date of birth
       </Label>
