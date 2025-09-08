@@ -1,10 +1,11 @@
 "use client";
 import { Checkbox } from "@/registry/new-york/checkbox";
-
-
+import { Separator } from "@/registry/new-york/separator"
+import { Skeleton } from "@/registry/new-york/skeleton"
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu"
-
-
+import { Progress } from "@/registry/new-york/progress"
+import { Slider } from "@/registry/new-york/slider"
+import { Switch } from "@/registry/new-york/switch"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -392,6 +393,94 @@ export default function Home() {
           </form>
         </Dialog>
       </div>
+
+
+
+<h2>-----------------Input----------------</h2>
+<div>
+ <div className="grid w-full max-w-sm items-center gap-3 mb-5">
+      <Label htmlFor="picture">Picture</Label>
+      <Input id="picture" type="file" />
     </div>
+
+
+
+
+    <div className="grid w-full max-w-sm items-center gap-3">
+      <Label htmlFor="email">Name</Label>
+      <Input type="email" id="email" placeholder="m@example.com" />
+    </div>
+ 
+ <div className="grid w-full max-w-sm items-center gap-3 mt-3">
+      <Label htmlFor="email">Username</Label>
+      <Input type="email" id="email"  />
+    </div>
+ 
+
+ 
+</div>
+
+<h3 className="m-3 text-center">---------------Progress-----------------</h3>
+<div className="m-4">
+  <Progress value={33} />
+</div>
+
+    <div>
+      <h3 className="mb-2">---------Seperator---------------</h3>
+      <Separator className="my-3" />
+      <div className="flex h-5 items-center space-x-4 text-sm">
+       <div>hellooooo</div>
+        
+        <Separator orientation="vertical" />
+       <div>hellooooo</div>
+        <Separator orientation="vertical" />
+         <div>hellooooo</div>
+        <Separator orientation="vertical" />
+         <div>hellooooo</div>
+        <Separator orientation="vertical" />
+         <div>hellooooo</div>
+        
+        
+       
+      </div>
+      
+        <Separator className="my-3" />
+    </div>
+
+<div>
+
+<h3 className="m-4">-------------skeleton--------------------</h3>
+
+    <div className="flex flex-col space-y-3 m-5">
+      <Skeleton className="h-[125px] w-[250px] rounded-xl" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
+      </div>
+    </div>
+
+
+</div>
+
+<div className="m-5">
+<h2 className="m-5 text-center">--------Slider-----------</h2>
+
+<Slider defaultValue={[33]} max={100} step={1} />
+
+</div>
+
+
+<div className="m-5">
+<Switch />
+
+</div>
+
+
+</div>
+
+
+
+
+    
   );
 }

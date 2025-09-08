@@ -113,6 +113,10 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+   --input-background-custom: #151515;
+   --progress-foreground: #FFFFFF;
+  --progress-background: oklch(0.25 0 0);
+  --keross-skeleton-bg: var(--accent);
 }
 
 .keross {
@@ -122,6 +126,7 @@
   --card-foreground: oklch(0.985 0 0);
   --btn-outlined: oklch(0.1897 0.0364 266.07);
   --popover: oklch(0.205 0 0);
+ 
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
@@ -149,6 +154,10 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
   --keross-checkbox-bg: var(--foreground); 
+ --keross-skeleton-bg: #FFFFFF26; 
+  --progress-foreground: #FFFFFF33;
+  --progress-background: #1D283A;
+
 }
 
 @layer base {
