@@ -7,6 +7,17 @@ import { Progress } from "@/registry/new-york/progress"
 import { Slider } from "@/registry/new-york/slider"
 import { Switch } from "@/registry/new-york/switch"
 import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/registry/new-york/tooltip"
+
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
+import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
@@ -31,6 +42,8 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/registry/new-york/avatar";
+import { Calendar as LucideCalendar } from 'lucide-react';
+
 import { Button } from "@/registry/new-york/button";
 import { CheckCircle2Icon, Cross, Edit, Save, Share2, X } from "lucide-react";
 import * as React from "react";
@@ -42,7 +55,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@/registry/new-york/popover";
 import {
   Card,
   CardHeader,
@@ -53,6 +66,9 @@ import {
   CardFooter,
 } from "@/registry/new-york/card";
 import { Input } from "@/registry/new-york/input";
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/new-york/tabs"
+import { Textarea } from "@/registry/new-york/textarea"
 
 import {
   Accordion,
@@ -471,10 +487,151 @@ export default function Home() {
 
 
 <div className="m-5">
+<h2 className="m-5 text-center">--------Switch-----------</h2>
+
 <Switch />
 
 </div>
 
+<div className="m-5 h-[400px]">
+
+<h2 className="m-5 text-center">--------Popover-----------</h2>
+
+
+
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="outline">Open popover</Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-80">
+        <div className="grid gap-4">
+          <div className="space-y-2">
+            <h4 className="leading-none font-medium">Dimensions</h4>
+            <p className="text-muted-foreground text-sm">
+              Set the dimensions for the layer.
+            </p>
+          </div>
+          <div className="grid gap-2">
+            <div className="grid grid-cols-3 items-center gap-4">
+              <Label htmlFor="width">Width</Label>
+              <Input
+                id="width"
+                defaultValue="100%"
+                className="col-span-2 h-8"
+              />
+            </div>
+            <div className="grid grid-cols-3 items-center gap-4">
+              <Label htmlFor="maxWidth">Max. width</Label>
+              <Input
+                id="maxWidth"
+                defaultValue="300px"
+                className="col-span-2 h-8"
+              />
+            </div>
+            <div className="grid grid-cols-3 items-center gap-4">
+              <Label htmlFor="height">Height</Label>
+              <Input
+                id="height"
+                defaultValue="25px"
+                className="col-span-2 h-8"
+              />
+            </div>
+            <div className="grid grid-cols-3 items-center gap-4">
+              <Label htmlFor="maxHeight">Max. height</Label>
+              <Input
+                id="maxHeight"
+                defaultValue="none"
+                className="col-span-2 h-8"
+              />
+            </div>
+          </div>
+        </div>
+      </PopoverContent>
+    </Popover>
+  
+
+
+
+</div>
+
+<div className="m-5">
+<h2 className="m-5 text-center">--------Tab-----------</h2>
+
+<Tabs defaultValue="account" className="w-[400px] h-[400px] border border-white">
+  
+</Tabs>
+
+
+</div>
+
+
+<div className="m-5">
+
+<h2 className="m-5 text-center">--------TextArea-----------</h2>
+
+
+
+    <div className="grid w-full gap-3">
+
+      <Label htmlFor="message-2">Your Message</Label>
+      <Textarea placeholder="Type your message here." id="message-2" />
+      <p className="text-muted-foreground text-sm">
+        Your message will be copied to the support team.
+      </p>
+
+      <Label htmlFor="message-2">Your Message</Label>
+      <Textarea placeholder="Type your message here." id="message-2" />
+      <p className="text-muted-foreground text-sm">
+        Your message will be copied to the support team.
+      </p>
+
+    </div>
+  
+
+
+</div>
+
+
+    <div className="grid w-full gap-3 m-5">
+<h2 className="m-5 text-center">--------Tooltip-----------</h2>
+
+
+<Tooltip>
+  <TooltipTrigger >Hover</TooltipTrigger>
+  <TooltipContent>
+    <p>Add to library</p>
+  </TooltipContent>
+</Tooltip>
+
+</div>
+
+
+    <div className="grid w-full gap-3 m-5">
+
+
+
+<HoverCard>
+  <HoverCardTrigger>@Keross</HoverCardTrigger>
+  <HoverCardContent>
+    @Keross
+    <br />
+ Step into the future of colobaration with our AI workspace
+ <br />
+
+ <div className="flex gap-2 mt-2">
+<LucideCalendar/> 
+ <p>
+
+
+  Opened December 2007
+ </p>
+
+ </div>
+ 
+  </HoverCardContent>
+</HoverCard>
+
+</div>
 
 </div>
 
