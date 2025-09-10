@@ -6,6 +6,20 @@ import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu"
 import { Progress } from "@/registry/new-york/progress"
 import { Slider } from "@/registry/new-york/slider"
 import { Switch } from "@/registry/new-york/switch"
+import { RadioGroup, RadioGroupItem } from "@/registry/new-york/radio-group"
+import Link from "next/link"
+import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react"
+import { ScrollArea } from "@/registry/new-york/scroll-area"
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/registry/new-york/table"
+
 import {
   Tooltip,
   TooltipContent,
@@ -96,6 +110,44 @@ export default function Home() {
   const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true)
   const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false)
   const [showPanel, setShowPanel] = React.useState<Checked>(false)
+
+const components: { title: string; href: string; description: string }[] = [
+  {
+    title: "Alert Dialog",
+    href: "/docs/primitives/alert-dialog",
+    description:
+      "A modal dialog that interrupts the user with important content and expects a response.",
+  },
+  {
+    title: "Hover Card",
+    href: "/docs/primitives/hover-card",
+    description:
+      "For sighted users to preview content available behind a link.",
+  },
+  {
+    title: "Progress",
+    href: "/docs/primitives/progress",
+    description:
+      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+  },
+  {
+    title: "Scroll-area",
+    href: "/docs/primitives/scroll-area",
+    description: "Visually or semantically separates content.",
+  },
+  {
+    title: "Tabs",
+    href: "/docs/primitives/tabs",
+    description:
+      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+  },
+  {
+    title: "Tooltip",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  }]
+
   return (
     <div className="flex flex-col w-1/2 mx-auto">
       {/* ------------------------------------ Accordion ------------------------------------ */}
@@ -585,6 +637,8 @@ export default function Home() {
         Your message will be copied to the support team.
       </p>
 
+    <Button>Send Message</Button>
+
     </div>
   
 
@@ -632,6 +686,107 @@ export default function Home() {
 </HoverCard>
 
 </div>
+
+
+<div className="m-5">
+<h2 className="m-5 text-center">--------Radio group-----------</h2>
+
+  <RadioGroup defaultValue="option-one">
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option-one" id="option-one" />
+    <Label htmlFor="option-one">Default</Label>
+  </div>
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option-two" id="option-two" />
+    <Label htmlFor="option-two">Comfortable</Label>
+  </div>
+
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option-three" id="option-two" />
+    <Label htmlFor="option-three">Compact</Label>
+  </div>
+
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option" id="option-two" disabled checked/>
+    <Label htmlFor="option">Comfortable</Label>
+  </div>
+
+</RadioGroup>
+</div>
+
+<div className="m-5">
+<h2 className="m-5 text-center">--------Scroll Area-----------</h2>
+
+<ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
+  Jokester began sneaking into the castle in the middle of the night and leaving
+  jokes all over the place: under the king's pillow, in his soup, even in the
+  royal toilet. The king was furious, but he couldn't seem to stop Jokester. And
+  then, one day, the people of the kingdom discovered that the jokes left by
+  Jokester were so funny that they couldn't help but laugh. And once they
+  started laughing, they couldn't stop.
+</ScrollArea>
+</div>
+
+
+<div className="m-5">
+<Table>
+  <TableCaption>A list of your recent invoices.</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead className="w-[100px]">Invoice</TableHead>
+      <TableHead>Status</TableHead>
+      <TableHead>Method</TableHead>
+      <TableHead className="text-right">Amount</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell className="font-medium">INV001</TableCell>
+      <TableCell>Paid</TableCell>
+      <TableCell>Credit Card</TableCell>
+      <TableCell className="text-right">$250.00</TableCell>
+    </TableRow>
+
+   <TableRow>
+      <TableCell className="font-medium">INV001</TableCell>
+      <TableCell>Paid</TableCell>
+      <TableCell>Credit Card</TableCell>
+      <TableCell className="text-right">$250.00</TableCell>
+    </TableRow>
+
+    <TableRow>
+      <TableCell className="font-medium">INV001</TableCell>
+      <TableCell>Paid</TableCell>
+      <TableCell>Credit Card</TableCell>
+      <TableCell className="text-right">$250.00</TableCell>
+    </TableRow>
+
+
+    <TableRow>
+      <TableCell className="font-medium">INV001</TableCell>
+      <TableCell>Paid</TableCell>
+      <TableCell>Credit Card</TableCell>
+      <TableCell className="text-right">$250.00</TableCell>
+    </TableRow>
+
+
+  </TableBody>
+</Table>
+
+</div>
+
+<div className="m-5">
+
+
+
+
+
+  
+
+
+
+</div>
+
 
 </div>
 

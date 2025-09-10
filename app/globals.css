@@ -117,6 +117,7 @@
    --progress-foreground: #FFFFFF;
   --progress-background: oklch(0.25 0 0);
   --keross-skeleton-bg: var(--accent);
+  --hover-back: #171717;
 }
 
 .keross {
@@ -154,9 +155,10 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
   --keross-checkbox-bg: var(--foreground); 
- --keross-skeleton-bg: #FFFFFF26; 
-  --progress-foreground: #FFFFFF33;
-  --progress-background: #1D283A;
+;--keross-skeleton-bg: oklch(1 0 0 / 15%);
+--progress-foreground: oklch(1 0 0 / 20%);
+--progress-background: oklch(0.1882 0.0527 266.38);
+--hover-back: oklch(0.2505 0.0528 266.07);
 
 }
 
