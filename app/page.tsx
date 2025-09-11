@@ -1,15 +1,15 @@
 "use client";
 import { Checkbox } from "@/registry/new-york/checkbox";
-import { Separator } from "@/registry/new-york/separator"
-import { Skeleton } from "@/registry/new-york/skeleton"
-import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu"
-import { Progress } from "@/registry/new-york/progress"
-import { Slider } from "@/registry/new-york/slider"
-import { Switch } from "@/registry/new-york/switch"
-import { RadioGroup, RadioGroupItem } from "@/registry/new-york/radio-group"
-import Link from "next/link"
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react"
-import { ScrollArea } from "@/registry/new-york/scroll-area"
+import { Separator } from "@/registry/new-york/separator";
+import { Skeleton } from "@/registry/new-york/skeleton";
+import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
+import { Progress } from "@/registry/new-york/progress";
+import { Slider } from "@/registry/new-york/slider";
+import { Switch } from "@/registry/new-york/switch";
+import { RadioGroup, RadioGroupItem } from "@/registry/new-york/radio-group";
+import Link from "next/link";
+import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react";
+import { ScrollArea } from "@/registry/new-york/scroll-area";
 import {
   Table,
   TableBody,
@@ -18,19 +18,19 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/registry/new-york/table"
+} from "@/registry/new-york/table";
 
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/registry/new-york/tooltip"
+} from "@/registry/new-york/tooltip";
 
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@/components/ui/hover-card"
+} from "@/components/ui/hover-card";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -38,7 +38,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/registry/new-york/dropdown-menu";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -56,8 +56,17 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/registry/new-york/avatar";
-import { Calendar as LucideCalendar } from 'lucide-react';
-
+import { Calendar as LucideCalendar } from "lucide-react";
+import { Check, ChevronsUpDown } from "lucide-react";
+import { cn } from "@/lib/utils";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/registry/new-york/command";
 import { Button } from "@/registry/new-york/button";
 import { CheckCircle2Icon, Cross, Edit, Save, Share2, X } from "lucide-react";
 import * as React from "react";
@@ -81,8 +90,13 @@ import {
 } from "@/registry/new-york/card";
 import { Input } from "@/registry/new-york/input";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/new-york/tabs"
-import { Textarea } from "@/registry/new-york/textarea"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/registry/new-york/tabs";
+import { Textarea } from "@/registry/new-york/textarea";
 
 import {
   Accordion,
@@ -100,53 +114,90 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/registry/new-york/dialog";
+import { DateRange } from "react-day-picker";
+import { useState } from "react";
+import { DateRangePicker } from "@/registry/new-york/date-range-picker";
 
 export default function Home() {
+  const frameworks = [
+    {
+      value: "next.js",
+      label: "Next.js",
+    },
+    {
+      value: "sveltekit",
+      label: "SvelteKit",
+    },
+    {
+      value: "nuxt.js",
+      label: "Nuxt.js",
+    },
+    {
+      value: "remix",
+      label: "Remix",
+    },
+    {
+      value: "astro",
+      label: "Astro",
+    },
+  ];
   const [open, setOpen] = React.useState(false);
+   const [oopen, setOOpen] = React.useState(false);
   const [date, setDate] = React.useState<Date | undefined>(undefined);
-  type Checked = DropdownMenuCheckboxItemProps["checked"]
+  type Checked = DropdownMenuCheckboxItemProps["checked"];
+
+  const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true);
+  const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false);
+  const [showPanel, setShowPanel] = React.useState<Checked>(false);
+
+  const components: { title: string; href: string; description: string }[] = [
+    {
+      title: "Alert Dialog",
+      href: "/docs/primitives/alert-dialog",
+      description:
+        "A modal dialog that interrupts the user with important content and expects a response.",
+    },
+    {
+      title: "Hover Card",
+      href: "/docs/primitives/hover-card",
+      description:
+        "For sighted users to preview content available behind a link.",
+    },
+    {
+      title: "Progress",
+      href: "/docs/primitives/progress",
+      description:
+        "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+    },
+    {
+      title: "Scroll-area",
+      href: "/docs/primitives/scroll-area",
+      description: "Visually or semantically separates content.",
+    },
+    {
+      title: "Tabs",
+      href: "/docs/primitives/tabs",
+      description:
+        "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+    },
+    {
+      title: "Tooltip",
+      href: "/docs/primitives/tooltip",
+      description:
+        "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+    },
+  ];
 
 
-  const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true)
-  const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false)
-  const [showPanel, setShowPanel] = React.useState<Checked>(false)
+   const [dateRange, setDateRange] = useState<DateRange | undefined>()
 
-const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
-  },
-  {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-  },
-  {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  }]
+  const handleUpdate = ({ range }: { range: DateRange }) => {
+    setDateRange(range)
+    console.log('Main Range:', range)
+  }
+
+
+  // Removed duplicate setValue function declaration
 
   return (
     <div className="flex flex-col w-1/2 mx-auto">
@@ -249,7 +300,7 @@ const components: { title: string; href: string; description: string }[] = [
         </AlertDialog>
       </div>
 
-       {/* ------------------------------------ Calandar ------------------------------------ */}
+      {/* ------------------------------------ Calandar ------------------------------------ */}
       <Label htmlFor="date" className="mb-2 text-2xl">
         Date of birth
       </Label>
@@ -318,42 +369,40 @@ const components: { title: string; href: string; description: string }[] = [
         </div>
       </div>
 
-      
-    <div className="mb-4 h-[250px]">
-      {/* ------------------------------------ Dropdown ------------------------------------ */}
-      <div className="mb-2 text-2xl">Dropdown</div>
-      <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant={"outline"} className="bg-card">Open</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuCheckboxItem
-          checked={showStatusBar}
-          onCheckedChange={setShowStatusBar}
-        >
-          Status Bar
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem
-          checked={showActivityBar}
-          onCheckedChange={setShowActivityBar}
-          disabled
-        >
-          Activity Bar
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem
-          checked={showPanel}
-          onCheckedChange={setShowPanel}
-        >
-          Panel
-        </DropdownMenuCheckboxItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
-    </div>
-  
-
-
+      <div className="mb-4 h-[250px]">
+        {/* ------------------------------------ Dropdown ------------------------------------ */}
+        <div className="mb-2 text-2xl">Dropdown</div>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant={"outline"} className="bg-card">
+              Open
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56">
+            <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuCheckboxItem
+              checked={showStatusBar}
+              onCheckedChange={setShowStatusBar}
+            >
+              Status Bar
+            </DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem
+              checked={showActivityBar}
+              onCheckedChange={setShowActivityBar}
+              disabled
+            >
+              Activity Bar
+            </DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem
+              checked={showPanel}
+              onCheckedChange={setShowPanel}
+            >
+              Panel
+            </DropdownMenuCheckboxItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
 
       {/* ------------------------------------ Card ------------------------------------ */}
       <div className="mb-2 text-2xl">Card</div>
@@ -462,337 +511,371 @@ const components: { title: string; href: string; description: string }[] = [
         </Dialog>
       </div>
 
+      <h2>-----------------Input----------------</h2>
+      <div>
+        <div className="grid w-full max-w-sm items-center gap-3 mb-5">
+          <Label htmlFor="picture">Picture</Label>
+          <Input id="picture" type="file" />
+        </div>
 
+        <div className="grid w-full max-w-sm items-center gap-3">
+          <Label htmlFor="email">Name</Label>
+          <Input type="email" id="email" placeholder="m@example.com" />
+        </div>
 
-<h2>-----------------Input----------------</h2>
-<div>
- <div className="grid w-full max-w-sm items-center gap-3 mb-5">
-      <Label htmlFor="picture">Picture</Label>
-      <Input id="picture" type="file" />
-    </div>
-
-
-
-
-    <div className="grid w-full max-w-sm items-center gap-3">
-      <Label htmlFor="email">Name</Label>
-      <Input type="email" id="email" placeholder="m@example.com" />
-    </div>
- 
- <div className="grid w-full max-w-sm items-center gap-3 mt-3">
-      <Label htmlFor="email">Username</Label>
-      <Input type="email" id="email"  />
-    </div>
- 
-
- 
-</div>
-
-<h3 className="m-3 text-center">---------------Progress-----------------</h3>
-<div className="m-4">
-  <Progress value={33} />
-</div>
-
-    <div>
-      <h3 className="mb-2">---------Seperator---------------</h3>
-      <Separator className="my-3" />
-      <div className="flex h-5 items-center space-x-4 text-sm">
-       <div>hellooooo</div>
-        
-        <Separator orientation="vertical" />
-       <div>hellooooo</div>
-        <Separator orientation="vertical" />
-         <div>hellooooo</div>
-        <Separator orientation="vertical" />
-         <div>hellooooo</div>
-        <Separator orientation="vertical" />
-         <div>hellooooo</div>
-        
-        
-       
+        <div className="grid w-full max-w-sm items-center gap-3 mt-3">
+          <Label htmlFor="email">Username</Label>
+          <Input type="email" id="email" />
+        </div>
       </div>
-      
+
+      <h3 className="m-3 text-center">
+        ---------------Progress-----------------
+      </h3>
+      <div className="m-4">
+        <Progress value={33} />
+      </div>
+
+      <div>
+        <h3 className="mb-2">---------Seperator---------------</h3>
         <Separator className="my-3" />
-    </div>
+        <div className="flex h-5 items-center space-x-4 text-sm">
+          <div>hellooooo</div>
 
-<div>
+          <Separator orientation="vertical" />
+          <div>hellooooo</div>
+          <Separator orientation="vertical" />
+          <div>hellooooo</div>
+          <Separator orientation="vertical" />
+          <div>hellooooo</div>
+          <Separator orientation="vertical" />
+          <div>hellooooo</div>
+        </div>
 
-<h3 className="m-4">-------------skeleton--------------------</h3>
-
-    <div className="flex flex-col space-y-3 m-5">
-      <Skeleton className="h-[125px] w-[250px] rounded-xl" />
-      <div className="space-y-2">
-        <Skeleton className="h-4 w-[250px]" />
-        <Skeleton className="h-4 w-[200px]" />
+        <Separator className="my-3" />
       </div>
-    </div>
 
+      <div>
+        <h3 className="m-4">-------------skeleton--------------------</h3>
 
-</div>
-
-<div className="m-5">
-<h2 className="m-5 text-center">--------Slider-----------</h2>
-
-<Slider defaultValue={[33]} max={100} step={1} />
-
-</div>
-
-
-<div className="m-5">
-<h2 className="m-5 text-center">--------Switch-----------</h2>
-
-<Switch />
-
-</div>
-
-<div className="m-5 h-[400px]">
-
-<h2 className="m-5 text-center">--------Popover-----------</h2>
-
-
-
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="outline">Open popover</Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-80">
-        <div className="grid gap-4">
+        <div className="flex flex-col space-y-3 m-5">
+          <Skeleton className="h-[125px] w-[250px] rounded-xl" />
           <div className="space-y-2">
-            <h4 className="leading-none font-medium">Dimensions</h4>
-            <p className="text-muted-foreground text-sm">
-              Set the dimensions for the layer.
-            </p>
-          </div>
-          <div className="grid gap-2">
-            <div className="grid grid-cols-3 items-center gap-4">
-              <Label htmlFor="width">Width</Label>
-              <Input
-                id="width"
-                defaultValue="100%"
-                className="col-span-2 h-8"
-              />
-            </div>
-            <div className="grid grid-cols-3 items-center gap-4">
-              <Label htmlFor="maxWidth">Max. width</Label>
-              <Input
-                id="maxWidth"
-                defaultValue="300px"
-                className="col-span-2 h-8"
-              />
-            </div>
-            <div className="grid grid-cols-3 items-center gap-4">
-              <Label htmlFor="height">Height</Label>
-              <Input
-                id="height"
-                defaultValue="25px"
-                className="col-span-2 h-8"
-              />
-            </div>
-            <div className="grid grid-cols-3 items-center gap-4">
-              <Label htmlFor="maxHeight">Max. height</Label>
-              <Input
-                id="maxHeight"
-                defaultValue="none"
-                className="col-span-2 h-8"
-              />
-            </div>
+            <Skeleton className="h-4 w-[250px]" />
+            <Skeleton className="h-4 w-[200px]" />
           </div>
         </div>
+      </div>
+
+      <div className="m-5">
+        <h2 className="m-5 text-center">--------Slider-----------</h2>
+
+        <Slider defaultValue={[33]} max={100} step={1} />
+      </div>
+
+      <div className="m-5">
+        <h2 className="m-5 text-center">--------Switch-----------</h2>
+
+        <Switch />
+      </div>
+
+      <div className="m-5 h-[400px]">
+        <h2 className="m-5 text-center">--------Popover-----------</h2>
+
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button variant="outline">Open popover</Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-80">
+            <div className="grid gap-4">
+              <div className="space-y-2">
+                <h4 className="leading-none font-medium">Dimensions</h4>
+                <p className="text-muted-foreground text-sm">
+                  Set the dimensions for the layer.
+                </p>
+              </div>
+              <div className="grid gap-2">
+                <div className="grid grid-cols-3 items-center gap-4">
+                  <Label htmlFor="width">Width</Label>
+                  <Input
+                    id="width"
+                    defaultValue="100%"
+                    className="col-span-2 h-8"
+                  />
+                </div>
+                <div className="grid grid-cols-3 items-center gap-4">
+                  <Label htmlFor="maxWidth">Max. width</Label>
+                  <Input
+                    id="maxWidth"
+                    defaultValue="300px"
+                    className="col-span-2 h-8"
+                  />
+                </div>
+                <div className="grid grid-cols-3 items-center gap-4">
+                  <Label htmlFor="height">Height</Label>
+                  <Input
+                    id="height"
+                    defaultValue="25px"
+                    className="col-span-2 h-8"
+                  />
+                </div>
+                <div className="grid grid-cols-3 items-center gap-4">
+                  <Label htmlFor="maxHeight">Max. height</Label>
+                  <Input
+                    id="maxHeight"
+                    defaultValue="none"
+                    className="col-span-2 h-8"
+                  />
+                </div>
+              </div>
+            </div>
+          </PopoverContent>
+        </Popover>
+      </div>
+
+      <div className="m-5">
+        <h2 className="m-5 text-center">--------Tab-----------</h2>
+
+        <Tabs
+          defaultValue="account"
+          className="w-[400px] h-[400px] border border-white"
+        ></Tabs>
+      </div>
+
+      <div className="m-5">
+        <h2 className="m-5 text-center">--------TextArea-----------</h2>
+
+        <div className="grid w-full gap-3">
+          <Label htmlFor="message-2">Your Message</Label>
+          <Textarea placeholder="Type your message here." id="message-2" />
+          <p className="text-muted-foreground text-sm">
+            Your message will be copied to the support team.
+          </p>
+
+          <Label htmlFor="message-2">Your Message</Label>
+          <Textarea placeholder="Type your message here." id="message-2" />
+          <p className="text-muted-foreground text-sm">
+            Your message will be copied to the support team.
+          </p>
+
+          <Button>Send Message</Button>
+        </div>
+      </div>
+
+      <div className="grid w-full gap-3 m-5">
+        <h2 className="m-5 text-center">--------Tooltip-----------</h2>
+
+        <Tooltip>
+          <TooltipTrigger>Hover</TooltipTrigger>
+          <TooltipContent>
+            <p>Add to library</p>
+          </TooltipContent>
+        </Tooltip>
+      </div>
+
+      <div className="grid w-full gap-3 m-5">
+        <HoverCard>
+          <HoverCardTrigger>@Keross</HoverCardTrigger>
+          <HoverCardContent>
+            @Keross
+            <br />
+            Step into the future of colobaration with our AI workspace
+            <br />
+            <div className="flex gap-2 mt-2">
+              <LucideCalendar />
+              <p>Opened December 2007</p>
+            </div>
+          </HoverCardContent>
+        </HoverCard>
+      </div>
+
+      <div className="m-5">
+        <h2 className="m-5 text-center">--------Radio group-----------</h2>
+
+        <RadioGroup defaultValue="option-one">
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="option-one" id="option-one" />
+            <Label htmlFor="option-one">Default</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="option-two" id="option-two" />
+            <Label htmlFor="option-two">Comfortable</Label>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="option-three" id="option-two" />
+            <Label htmlFor="option-three">Compact</Label>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="option" id="option-two" disabled checked />
+            <Label htmlFor="option">Comfortable</Label>
+          </div>
+        </RadioGroup>
+      </div>
+
+      <div className="m-5">
+        <h2 className="m-5 text-center">--------Scroll Area-----------</h2>
+
+        <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
+          Jokester began sneaking into the castle in the middle of the night and
+          leaving jokes all over the place: under the king's pillow, in his
+          soup, even in the royal toilet. The king was furious, but he couldn't
+          seem to stop Jokester. And then, one day, the people of the kingdom
+          discovered that the jokes left by Jokester were so funny that they
+          couldn't help but laugh. And once they started laughing, they couldn't
+          stop.
+        </ScrollArea>
+      </div>
+
+      <div className="m-5">
+        <h2 className="m-5 text-center">---------------Table-------------</h2>
+        <Table>
+          <TableCaption>A list of your recent invoices.</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="w-[100px]">Invoice</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead>Method</TableHead>
+              <TableHead className="text-right">Amount</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+              <TableCell className="font-medium">INV001</TableCell>
+              <TableCell>Paid</TableCell>
+              <TableCell>Credit Card</TableCell>
+              <TableCell className="text-right">$250.00</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell className="font-medium">INV001</TableCell>
+              <TableCell>Paid</TableCell>
+              <TableCell>Credit Card</TableCell>
+              <TableCell className="text-right">$250.00</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell className="font-medium">INV001</TableCell>
+              <TableCell>Paid</TableCell>
+              <TableCell>Credit Card</TableCell>
+              <TableCell className="text-right">$250.00</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell className="font-medium">INV001</TableCell>
+              <TableCell>Paid</TableCell>
+              <TableCell>Credit Card</TableCell>
+              <TableCell className="text-right">$250.00</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </div>
+
+
+       
+      <div className="m-5">
+<h2 className="m-5 text-center">-----------------Popover----------------</h2>
+<Popover open={oopen} onOpenChange={setOOpen}>
+      <PopoverTrigger asChild>
+        <Button variant="outline" className="w-[200px] justify-start">
+          Select framework
+           <ChevronsUpDown className="opacity-50" />
+        </Button>
+        
+      </PopoverTrigger>
+
+
+      
+      <PopoverContent className="w-[300px] p-0">
+        <Command>
+          <CommandInput placeholder="Type a command or search..." />
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            
+              <CommandItem>Calendar</CommandItem>
+              <CommandItem>Search Emoji</CommandItem>
+              <CommandItem>Calculator</CommandItem>
+          
+            
+              <CommandItem>Profile</CommandItem>
+              <CommandItem>Billing</CommandItem>
+              <CommandItem>Settings</CommandItem>
+              
+          </CommandList>
+        </Command>
       </PopoverContent>
     </Popover>
-  
+
+      </div>
+  <div className="mb-4 h-[250px]">
+        {/* ------------------------------------ Dropdown ------------------------------------ */}
+<h2 className="m-5 text-center">-----------------Filtering Dropdown----------------</h2>
+
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant={"outline"} className="bg-card">
+              filter
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56">
+            
+         
+            <DropdownMenuCheckboxItem
+              checked={showStatusBar}
+              onCheckedChange={setShowStatusBar}
+            >
+              Status 
+            </DropdownMenuCheckboxItem>
+
+            <DropdownMenuCheckboxItem
+              checked={showActivityBar}
+              onCheckedChange={setShowActivityBar}
+         
+            >
+              Email
+            </DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem
+              checked={showPanel}
+              onCheckedChange={setShowPanel}
+            >
+              Panel
+            </DropdownMenuCheckboxItem>
+
+            <DropdownMenuCheckboxItem
+              checked={showStatusBar}
+              onCheckedChange={setShowStatusBar}
+            >
+              Amount 
+            </DropdownMenuCheckboxItem>
+
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
 
 
+       <div className="p-8">
+      <h1 className="text-3xl font-bold mb-4">Date Range Picker</h1>
+      <div className="h-[300px]">
 
-</div>
+<DateRangePicker
+        onUpdate={handleUpdate}
+        initialDateFrom={new Date('2024-01-01')}
+        initialDateTo={new Date('2024-01-31')}
+      />
 
-<div className="m-5">
-<h2 className="m-5 text-center">--------Tab-----------</h2>
-
-<Tabs defaultValue="account" className="w-[400px] h-[400px] border border-white">
-  
-</Tabs>
-
-
-</div>
-
-
-<div className="m-5">
-
-<h2 className="m-5 text-center">--------TextArea-----------</h2>
-
-
-
-    <div className="grid w-full gap-3">
-
-      <Label htmlFor="message-2">Your Message</Label>
-      <Textarea placeholder="Type your message here." id="message-2" />
-      <p className="text-muted-foreground text-sm">
-        Your message will be copied to the support team.
-      </p>
-
-      <Label htmlFor="message-2">Your Message</Label>
-      <Textarea placeholder="Type your message here." id="message-2" />
-      <p className="text-muted-foreground text-sm">
-        Your message will be copied to the support team.
-      </p>
-
-    <Button>Send Message</Button>
-
+      </div>
+      <div className="mt-6 p-4 border rounded-lg">
+        <p>
+          Selected Range : 
+          {dateRange?.from ? dateRange.from.toLocaleDateString() : "N/A"} - 
+          {dateRange?.to ? dateRange.to.toLocaleDateString() : "N/A"}
+        </p>
+      </div>
     </div>
-  
 
 
-</div>
-
-
-    <div className="grid w-full gap-3 m-5">
-<h2 className="m-5 text-center">--------Tooltip-----------</h2>
-
-
-<Tooltip>
-  <TooltipTrigger >Hover</TooltipTrigger>
-  <TooltipContent>
-    <p>Add to library</p>
-  </TooltipContent>
-</Tooltip>
-
-</div>
-
-
-    <div className="grid w-full gap-3 m-5">
-
-
-
-<HoverCard>
-  <HoverCardTrigger>@Keross</HoverCardTrigger>
-  <HoverCardContent>
-    @Keross
-    <br />
- Step into the future of colobaration with our AI workspace
- <br />
-
- <div className="flex gap-2 mt-2">
-<LucideCalendar/> 
- <p>
-
-
-  Opened December 2007
- </p>
-
- </div>
- 
-  </HoverCardContent>
-</HoverCard>
-
-</div>
-
-
-<div className="m-5">
-<h2 className="m-5 text-center">--------Radio group-----------</h2>
-
-  <RadioGroup defaultValue="option-one">
-  <div className="flex items-center space-x-2">
-    <RadioGroupItem value="option-one" id="option-one" />
-    <Label htmlFor="option-one">Default</Label>
-  </div>
-  <div className="flex items-center space-x-2">
-    <RadioGroupItem value="option-two" id="option-two" />
-    <Label htmlFor="option-two">Comfortable</Label>
-  </div>
-
-  <div className="flex items-center space-x-2">
-    <RadioGroupItem value="option-three" id="option-two" />
-    <Label htmlFor="option-three">Compact</Label>
-  </div>
-
-  <div className="flex items-center space-x-2">
-    <RadioGroupItem value="option" id="option-two" disabled checked/>
-    <Label htmlFor="option">Comfortable</Label>
-  </div>
-
-</RadioGroup>
-</div>
-
-<div className="m-5">
-<h2 className="m-5 text-center">--------Scroll Area-----------</h2>
-
-<ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
-  Jokester began sneaking into the castle in the middle of the night and leaving
-  jokes all over the place: under the king's pillow, in his soup, even in the
-  royal toilet. The king was furious, but he couldn't seem to stop Jokester. And
-  then, one day, the people of the kingdom discovered that the jokes left by
-  Jokester were so funny that they couldn't help but laugh. And once they
-  started laughing, they couldn't stop.
-</ScrollArea>
-</div>
-
-
-<div className="m-5">
-<Table>
-  <TableCaption>A list of your recent invoices.</TableCaption>
-  <TableHeader>
-    <TableRow>
-      <TableHead className="w-[100px]">Invoice</TableHead>
-      <TableHead>Status</TableHead>
-      <TableHead>Method</TableHead>
-      <TableHead className="text-right">Amount</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell className="font-medium">INV001</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-
-   <TableRow>
-      <TableCell className="font-medium">INV001</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-
-    <TableRow>
-      <TableCell className="font-medium">INV001</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-
-
-    <TableRow>
-      <TableCell className="font-medium">INV001</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-
-
-  </TableBody>
-</Table>
-
-</div>
-
-<div className="m-5">
-
-
-
-
-
-  
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-    
+     
+    </div>
   );
 }
