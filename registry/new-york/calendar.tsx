@@ -207,12 +207,12 @@ function CalendarDayButton({
       className={cn(
           "data-[selected-single=true]:bg-[var(--calender-foreground)] data-[selected-single=true]:text-white",
         // Make sure the background is transparent for dates in the middle of the range
-        "data-[range-middle=true]:bg-[var(--ring)] data-[range-middle=true]:text-white",
+        "data-[range-middle=true]:bg-[var(--ring)] data-[range-middle=true]:text-white root:text-black",
         // Set background color for the start of the range
-        "data-[range-start=true]:bg-[var(--calender-foreground)] dark:data-[range-start=true]:text-black",
+        "data-[range-start=true]:bg-[var(--calender-foreground)] dark:data-[range-start=true]:text-black data-[range-start=true]:text-white",
         // Set background color for the end of the range
         "data-[range-end=true]:bg-[var(--calender-foreground)] data-[range-end=true]:text-white dark:data-[range-end=true]:text-black",
-        "group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-ring/50 dark:hover:text-accent-foreground flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none font-normal group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:ring-[3px] data-[range-end=true]:rounded-md data-[range-end=true]:rounded-r-md data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-md data-[range-start=true]:rounded-l-md [&>span]:text-xs [&>span]:opacity-70",
+        "group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-ring/50 dark:hover:text-accent-foreground flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none font-normal group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:ring-[3px] data-[range-end=true]:rounded-md data-[range-end=true]:rounded-r-md data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-md data-[range-start=true]:rounded-l-md [&>span]:text-xs [&>span]:opacity-70 root:text-black",
         defaultClassNames.day,
         className
       )}

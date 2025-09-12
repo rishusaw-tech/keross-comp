@@ -71,7 +71,7 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
   return (
     <Popover modal={true} open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger asChild>
-        <Button size={'lg'} variant="outline">
+        <Button size={'lg'} variant="secondary" className="w-auto px-3 py-2">
           <div className="flex-grow text-left font-normal">
              
             

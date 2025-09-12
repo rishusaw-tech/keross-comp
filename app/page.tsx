@@ -10,6 +10,20 @@ import { RadioGroup, RadioGroupItem } from "@/registry/new-york/radio-group";
 import Link from "next/link";
 import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react";
 import { ScrollArea } from "@/registry/new-york/scroll-area";
+
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+  NavigationMenuViewport,
+} from "@/registry/new-york/navigation-menu"
+
+
 import {
   Table,
   TableBody,
@@ -453,7 +467,7 @@ export default function Home() {
               Login
             </Button>
             <Button
-              variant="secondary"
+              variant="default"
               className="w-full dark:bg-primary dark:text-background"
             >
               Login with Google
@@ -468,7 +482,7 @@ export default function Home() {
         <Dialog>
           <form>
             <DialogTrigger asChild>
-              <Button variant="outline">Open Dialog</Button>
+              <Button variant="secondary">Open Dialog</Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>
@@ -494,13 +508,13 @@ export default function Home() {
               </div>
               <DialogFooter className="w-auto">
                 <DialogClose asChild>
-                  <Button variant="outline" className="dark:bg-[#121212]">
+                  <Button variant="secondary" className="dark:bg-[#121212]">
                     Cancel
                   </Button>
                 </DialogClose>
                 <Button
                   type="submit"
-                  variant={"secondary"}
+                  variant={"default"}
                   className="dark:bg-primary dark:text-background"
                 >
                   Save changes
@@ -775,7 +789,7 @@ export default function Home() {
 
        
       <div className="m-5">
-<h2 className="m-5 text-center">-----------------Popover----------------</h2>
+<h2 className="m-5 text-center">-----------------Combobox----------------</h2>
 <Popover open={oopen} onOpenChange={setOOpen}>
       <PopoverTrigger asChild>
         <Button variant="outline" className="w-[200px] justify-start">
@@ -874,7 +888,138 @@ export default function Home() {
       </div>
     </div>
 
+<div className="m-5">
 
+<NavigationMenu viewport={false}>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Home</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <ul className="grid w-[200px] gap-2">
+          <li>
+            <NavigationMenuLink asChild>
+              <Link href="#">Sub Item 1</Link>
+            </NavigationMenuLink>
+          </li>
+          <li>
+            <NavigationMenuLink asChild>
+              <Link href="#">Sub Item 2</Link>
+            </NavigationMenuLink>
+          </li>
+        </ul>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <ul className="grid w-[200px] gap-2">
+          <li>
+            <NavigationMenuLink asChild>
+              <Link href="#">Button</Link>
+            </NavigationMenuLink>
+          </li>
+          <li>
+            <NavigationMenuLink asChild>
+              <Link href="#">Card</Link>
+            </NavigationMenuLink>
+          </li>
+        </ul>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Docs</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <ul className="grid w-[200px] gap-2">
+          <li>
+            <NavigationMenuLink asChild>
+              <Link href="#">Getting Started</Link>
+            </NavigationMenuLink>
+          </li>
+          <li>
+            <NavigationMenuLink asChild>
+              <Link href="#">API Reference</Link>
+            </NavigationMenuLink>
+          </li>
+        </ul>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>List</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <ul className="grid w-[200px] gap-2">
+          <li>
+            <NavigationMenuLink asChild>
+              <Link href="#">Item A</Link>
+            </NavigationMenuLink>
+          </li>
+          <li>
+            <NavigationMenuLink asChild>
+              <Link href="#">Item B</Link>
+            </NavigationMenuLink>
+          </li>
+        </ul>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <ul className="grid w-[200px] gap-2">
+          <li>
+            <NavigationMenuLink asChild>
+              <Link href="#">One</Link>
+            </NavigationMenuLink>
+          </li>
+          <li>
+            <NavigationMenuLink asChild>
+              <Link href="#">Two</Link>
+            </NavigationMenuLink>
+          </li>
+        </ul>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <ul className="grid w-[200px] gap-2">
+          <li>
+            <NavigationMenuLink asChild>
+              <Link href="#" className="flex items-center gap-2">
+                <CircleHelpIcon />
+                Backlog
+              </Link>
+            </NavigationMenuLink>
+          </li>
+          <li>
+            <NavigationMenuLink asChild>
+              <Link href="#" className="flex items-center gap-2">
+                <CircleIcon />
+                To Do
+              </Link>
+            </NavigationMenuLink>
+          </li>
+          <li>
+            <NavigationMenuLink asChild>
+              <Link href="#" className="flex items-center gap-2">
+                <CircleCheckIcon />
+                Done
+              </Link>
+            </NavigationMenuLink>
+          </li>
+        </ul>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>
+
+
+
+
+</div>
      
     </div>
   );
