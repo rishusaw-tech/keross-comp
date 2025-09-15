@@ -11,27 +11,53 @@
       "type": "registry:component",
       "title": "Theme Toggle Button",
       "description": "Used to toggle between light, dark and keross themes",
-      "registryDependencies": [
-        "https://custom-components-sable.vercel.app/r/button.json",
-        "dropdown-menu"
-      ],
+      "registryDependencies": ["button", "dropdown-menu"],
       "files": [
-        {
-          "path": "registry/new-york/theme-toggle-btn.tsx",
-          "type": "registry:ui"
-        }
+        { "path": "registry/new-york/theme-toggle-btn.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "theme-provider",
+      "type": "registry:component",
+      "title": "Theme Provider",
+      "description": "Theme provider setup for light, dark, keross themes",
+      "files": [
+        { "path": "registry/new-york/theme-provider.tsx", "type": "registry:ui" }
       ]
     },
     {
       "name": "alert",
       "type": "registry:component",
       "title": "Alert",
-      "description": "alert component",
+      "description": "Alert component",
       "files": [
-        {
-          "path": "registry/new-york/alert.tsx",
-          "type": "registry:ui"
-        }
+        { "path": "registry/new-york/alert.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:component",
+      "title": "Alert Dialog",
+      "description": "Alert Dialog using @radix-ui/react-alert-dialog",
+      "externalDependencies": {
+        "@radix-ui/react-alert-dialog": "^1.1.15"
+      },
+      "registryDependencies": ["button"],
+      "files": [
+        { "path": "registry/new-york/alert-dialog.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:component",
+      "title": "Accordion",
+      "description": "Accordion component using @radix-ui/react-accordion",
+      "externalDependencies": {
+        "@radix-ui/react-accordion": "^1.2.12",
+        "lucide-react": "^0.542.0"
+      },
+      "files": [
+        { "path": "registry/new-york/accordion.tsx", "type": "registry:ui" }
       ]
     },
     {
@@ -43,61 +69,299 @@
         "@radix-ui/react-avatar": "^1.1.10"
       },
       "files": [
-        {
-          "path": "registry/new-york/avatar.tsx",
-          "type": "registry:ui"
-        }
+        { "path": "registry/new-york/avatar.tsx", "type": "registry:ui" }
       ]
     },
     {
       "name": "button",
       "type": "registry:component",
       "title": "Button",
-      "description": "A flexible button component built with class-variance-authority and Radix Slot for extensibility.",
-      "registryDependencies": [],
+      "description": "Flexible button component using class-variance-authority and Radix Slot",
       "externalDependencies": {
-        "@radix-ui/react-slot": "^1.0.2",
+        "@radix-ui/react-slot": "^1.2.3",
         "class-variance-authority": "^0.7.1"
       },
       "files": [
-        {
-          "path": "registry/new-york/button.tsx",
-          "type": "registry:ui"
-        }
+        { "path": "registry/new-york/button.tsx", "type": "registry:ui" }
       ]
     },
     {
-      "name": "alert-dialog",
+      "name": "calendar",
       "type": "registry:component",
-      "title": "Alert Dialog",
-      "description": "A custom Alert Dialog component built using @radix-ui/react-alert-dialog.",
+      "title": "Calendar",
+      "description": "Calendar using react-day-picker",
       "externalDependencies": {
-        "@radix-ui/react-alert-dialog": "^1.0.0"
+        "react-day-picker": "^9.9.0"
       },
-      "registryDependencies": [
-        "https://custom-components-sable.vercel.app/r/button.json"
-      ],
       "files": [
-        {
-          "path": "registry/new-york/alert-dialog.tsx",
-          "type": "registry:ui"
-        }
+        { "path": "registry/new-york/calendar.tsx", "type": "registry:ui" }
       ]
     },
     {
-      "name": "accordion",
+      "name": "card",
       "type": "registry:component",
-      "title": "Accordion",
-      "description": "A flexible accordion component built with @radix-ui/react-accordion.",
+      "title": "Card",
+      "description": "Card component",
+      "files": [
+        { "path": "registry/new-york/card.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:component",
+      "title": "Checkbox",
+      "description": "Checkbox using @radix-ui/react-checkbox",
       "externalDependencies": {
-        "@radix-ui/react-accordion": "^1.0.0",
-        "lucide-react": "^0.276.0"
+        "@radix-ui/react-checkbox": "^1.3.3"
       },
       "files": [
-        {
-          "path": "registry/new-york/accordion.tsx",
-          "type": "registry:ui"
-        }
+        { "path": "registry/new-york/checkbox.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:component",
+      "title": "Command",
+      "description": "Command palette component",
+      "files": [
+        { "path": "registry/new-york/command.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "date-input",
+      "type": "registry:component",
+      "title": "Date Input",
+      "description": "Date input component",
+      "files": [
+        { "path": "registry/new-york/date-input.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "date-range-picker",
+      "type": "registry:component",
+      "title": "Date Range Picker",
+      "description": "Date range picker using react-day-picker",
+      "externalDependencies": {
+        "react-day-picker": "^9.9.0"
+      },
+      "files": [
+        { "path": "registry/new-york/date-range-picker.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:component",
+      "title": "Dialog",
+      "description": "Dialog using @radix-ui/react-dialog",
+      "externalDependencies": {
+        "@radix-ui/react-dialog": "^1.1.15"
+      },
+      "files": [
+        { "path": "registry/new-york/dialog.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:component",
+      "title": "Dropdown Menu",
+      "description": "Dropdown menu using @radix-ui/react-dropdown-menu",
+      "externalDependencies": {
+        "@radix-ui/react-dropdown-menu": "^2.1.16"
+      },
+      "files": [
+        { "path": "registry/new-york/dropdown-menu.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:component",
+      "title": "Hover Card",
+      "description": "Hover Card using @radix-ui/react-hover-card",
+      "externalDependencies": {
+        "@radix-ui/react-hover-card": "^1.1.15"
+      },
+      "files": [
+        { "path": "registry/new-york/hover-card.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:component",
+      "title": "Input",
+      "description": "Input component",
+      "files": [
+        { "path": "registry/new-york/input.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:component",
+      "title": "Label",
+      "description": "Label using @radix-ui/react-label",
+      "externalDependencies": {
+        "@radix-ui/react-label": "^2.1.7"
+      },
+      "files": [
+        { "path": "registry/new-york/label.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:component",
+      "title": "Navigation Menu",
+      "description": "Navigation menu using @radix-ui/react-navigation-menu",
+      "externalDependencies": {
+        "@radix-ui/react-navigation-menu": "^1.2.14"
+      },
+      "files": [
+        { "path": "registry/new-york/navigation-menu.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:component",
+      "title": "Popover",
+      "description": "Popover using @radix-ui/react-popover",
+      "externalDependencies": {
+        "@radix-ui/react-popover": "^1.1.15"
+      },
+      "files": [
+        { "path": "registry/new-york/popover.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:component",
+      "title": "Progress",
+      "description": "Progress bar using @radix-ui/react-progress",
+      "externalDependencies": {
+        "@radix-ui/react-progress": "^1.1.7"
+      },
+      "files": [
+        { "path": "registry/new-york/progress.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:component",
+      "title": "Radio Group",
+      "description": "Radio group using @radix-ui/react-radio-group",
+      "externalDependencies": {
+        "@radix-ui/react-radio-group": "^1.3.8"
+      },
+      "files": [
+        { "path": "registry/new-york/radio-group.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:component",
+      "title": "Scroll Area",
+      "description": "Scroll area using @radix-ui/react-scroll-area",
+      "externalDependencies": {
+        "@radix-ui/react-scroll-area": "^1.2.10"
+      },
+      "files": [
+        { "path": "registry/new-york/scroll-area.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:component",
+      "title": "Select",
+      "description": "Select using @radix-ui/react-select",
+      "externalDependencies": {
+        "@radix-ui/react-select": "^2.2.6"
+      },
+      "files": [
+        { "path": "registry/new-york/select.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:component",
+      "title": "Separator",
+      "description": "Separator using @radix-ui/react-separator",
+      "externalDependencies": {
+        "@radix-ui/react-separator": "^1.1.7"
+      },
+      "files": [
+        { "path": "registry/new-york/separator.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:component",
+      "title": "Skeleton",
+      "description": "Skeleton loader",
+      "files": [
+        { "path": "registry/new-york/skeleton.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:component",
+      "title": "Slider",
+      "description": "Slider using @radix-ui/react-slider",
+      "externalDependencies": {
+        "@radix-ui/react-slider": "^1.3.6"
+      },
+      "files": [
+        { "path": "registry/new-york/slider.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:component",
+      "title": "Switch",
+      "description": "Switch using @radix-ui/react-switch",
+      "externalDependencies": {
+        "@radix-ui/react-switch": "^1.2.6"
+      },
+      "files": [
+        { "path": "registry/new-york/switch.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:component",
+      "title": "Table",
+      "description": "Table component",
+      "files": [
+        { "path": "registry/new-york/table.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:component",
+      "title": "Tabs",
+      "description": "Tabs using @radix-ui/react-tabs",
+      "externalDependencies": {
+        "@radix-ui/react-tabs": "^1.1.13"
+      },
+      "files": [
+        { "path": "registry/new-york/tabs.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:component",
+      "title": "Textarea",
+      "description": "Textarea component",
+      "files": [
+        { "path": "registry/new-york/textarea.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:component",
+      "title": "Tooltip",
+      "description": "Tooltip using @radix-ui/react-tooltip",
+      "externalDependencies": {
+        "@radix-ui/react-tooltip": "^1.2.8"
+      },
+      "files": [
+        { "path": "registry/new-york/tooltip.tsx", "type": "registry:ui" }
       ]
     }
   ]

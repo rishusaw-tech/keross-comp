@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "declarationDir": "dist",
+    "outDir": "dist",
+    "emitDeclarationOnly": false,
+    "isolatedModules": false,
+    "jsx": "react-jsx",
+    "allowJs": false           // ⛔ prevents copying .ts/.tsx into dist
+  },
+  "include": [
+    "index.ts",
+    "components/**/*",
+    "registry/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    "dist"
+  ]
+}

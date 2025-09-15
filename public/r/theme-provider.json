@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-provider",
+  "type": "registry:component",
+  "title": "Theme Provider",
+  "description": "Theme provider setup for light, dark, keross themes",
+  "files": [
+    {
+      "path": "registry/new-york/theme-provider.tsx",
+      "content": "\"use client\"\r\n\r\nimport * as React from \"react\"\r\nimport { ThemeProvider as NextThemesProvider } from \"next-themes\"\r\n\r\nexport function ThemeProvider({\r\n  children,\r\n  ...props\r\n}: React.ComponentProps<typeof NextThemesProvider>) {\r\n  return <NextThemesProvider {...props}>{children}</NextThemesProvider>\r\n}",
+      "type": "registry:ui"
+    }
+  ]
+}

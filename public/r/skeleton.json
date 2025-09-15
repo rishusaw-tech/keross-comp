@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "type": "registry:component",
+  "title": "Skeleton",
+  "description": "Skeleton loader",
+  "files": [
+    {
+      "path": "registry/new-york/skeleton.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\r\n\r\nfunction Skeleton({ className, ...props }: React.ComponentProps<\"div\">) {\r\n  return (\r\n    <div\r\n      data-slot=\"skeleton\"\r\n      className={cn(\"animate-pulse rounded-md\", className)}\r\n      style={{ backgroundColor: \"var(--keross-skeleton-bg)\" }}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport { Skeleton };",
+      "type": "registry:ui"
+    }
+  ]
+}

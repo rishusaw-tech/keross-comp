@@ -1,15 +1,13 @@
 "use client";
-import { Checkbox } from "@/registry/new-york/checkbox";
-import { Separator } from "@/registry/new-york/separator";
-import { Skeleton } from "@/registry/new-york/skeleton";
-import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
-import { Progress } from "@/registry/new-york/progress";
-import { Slider } from "@/registry/new-york/slider";
-import { Switch } from "@/registry/new-york/switch";
-import { RadioGroup, RadioGroupItem } from "@/registry/new-york/radio-group";
-import Link from "next/link";
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react";
-import { ScrollArea } from "@/registry/new-york/scroll-area";
+
+import { Checkbox } from "../components/registry/new-york/checkbox";
+import { Separator } from "../components/registry/new-york/separator";
+import { Skeleton } from "../components/registry/new-york/skeleton";
+import { Progress } from "../components/registry/new-york/progress";
+import { Slider } from "../components/registry/new-york/slider";
+import { Switch } from "../components/registry/new-york/switch";
+import { RadioGroup, RadioGroupItem } from "../components/registry/new-york/radio-group";
+import { ScrollArea } from "../components/registry/new-york/scroll-area";
 
 import {
   NavigationMenu,
@@ -21,8 +19,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
   NavigationMenuViewport,
-} from "@/registry/new-york/navigation-menu"
-
+} from "../components/registry/new-york/navigation-menu";
 
 import {
   Table,
@@ -32,19 +29,11 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/registry/new-york/table";
+} from "../components/registry/new-york/table";
 
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/registry/new-york/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../components/registry/new-york/tooltip";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "../components/registry/new-york/hover-card";
 
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -52,7 +41,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/registry/new-york/dropdown-menu";
+} from "../components/registry/new-york/dropdown-menu";
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -63,16 +53,10 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/registry/new-york/alert-dialog";
-import { Alert, AlertDescription, AlertTitle } from "@/registry/new-york/alert";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/registry/new-york/avatar";
-import { Calendar as LucideCalendar } from "lucide-react";
-import { Check, ChevronsUpDown } from "lucide-react";
-import { cn } from "@/lib/utils";
+} from "../components/registry/new-york/alert-dialog";
+
+import { Alert, AlertDescription, AlertTitle } from "../components/registry/new-york/alert";
+import { Avatar, AvatarFallback, AvatarImage } from "../components/registry/new-york/avatar";
 import {
   Command,
   CommandEmpty,
@@ -80,19 +64,12 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/new-york/command";
-import { Button } from "@/registry/new-york/button";
-import { CheckCircle2Icon, Cross, Edit, Save, Share2, X } from "lucide-react";
-import * as React from "react";
-import { ChevronDownIcon } from "lucide-react";
+} from "../components/registry/new-york/command";
+import { Button } from "../components/registry/new-york/button";
+import { Calendar } from "../components/registry/new-york/calendar";
+import { Label } from "../components/registry/new-york/label";
+import { Popover, PopoverContent, PopoverTrigger } from "../components/registry/new-york/popover";
 
-import { Calendar } from "@/components/ui/calendar";
-import { Label } from "@/components/ui/label";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york/popover";
 import {
   Card,
   CardHeader,
@@ -101,23 +78,14 @@ import {
   CardContent,
   CardDescription,
   CardFooter,
-} from "@/registry/new-york/card";
-import { Input } from "@/registry/new-york/input";
+} from "../components/registry/new-york/card";
 
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/registry/new-york/tabs";
-import { Textarea } from "@/registry/new-york/textarea";
+import { Input } from "../components/registry/new-york/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/registry/new-york/tabs";
+import { Textarea } from "../components/registry/new-york/textarea";
 
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "@/registry/new-york/accordion";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../components/registry/new-york/accordion";
+
 import {
   Dialog,
   DialogClose,
@@ -127,10 +95,34 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/registry/new-york/dialog";
-import { DateRange } from "react-day-picker";
-import { useState } from "react";
-import { DateRangePicker } from "@/registry/new-york/date-range-picker";
+} from "../components/registry/new-york/dialog";
+
+import { DateRangePicker } from "../components/registry/new-york/date-range-picker";
+
+// Utilities
+import { cn } from "../components/registry/new-york/utils";
+
+// Types
+import type { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
+import type { DateRange } from "react-day-picker";
+
+// React and icons
+import React, { useState } from "react";
+import {
+  CheckCircle2Icon,
+  ChevronDownIcon,
+  ChevronsUpDown,
+  CircleCheckIcon,
+  CircleHelpIcon,
+  CircleIcon,
+  Edit,
+  Link,
+  LucideCalendar,
+  Save,
+  Share2,
+  X,
+} from "lucide-react";
+
 
 export default function Home() {
   const frameworks = [
@@ -156,7 +148,7 @@ export default function Home() {
     },
   ];
   const [open, setOpen] = React.useState(false);
-   const [oopen, setOOpen] = React.useState(false);
+  const [oopen, setOOpen] = React.useState(false);
   const [date, setDate] = React.useState<Date | undefined>(undefined);
   type Checked = DropdownMenuCheckboxItemProps["checked"];
 
@@ -202,14 +194,12 @@ export default function Home() {
     },
   ];
 
-
-   const [dateRange, setDateRange] = useState<DateRange | undefined>()
+  const [dateRange, setDateRange] = useState<DateRange | undefined>();
 
   const handleUpdate = ({ range }: { range: DateRange }) => {
-    setDateRange(range)
-    console.log('Main Range:', range)
-  }
-
+    setDateRange(range);
+    console.log("Main Range:", range);
+  };
 
   // Removed duplicate setValue function declaration
 
@@ -732,13 +722,20 @@ export default function Home() {
         <h2 className="m-5 text-center">--------Scroll Area-----------</h2>
 
         <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
-          Jokester began sneaking into the castle in the middle of the night and
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Reprehenderit corporis hic pariatur ipsa saepe. Consectetur
+          voluptatibus quo reprehenderit blanditiis quasi qui alias quod
+          voluptas vel iusto similique ducimus consequuntur nesciunt soluta
+          totam, magnam ratione, voluptate quia laborum beatae? Molestias,
+          repellat consectetur facilis a labore dignissimos soluta nam quo
+          laudantium quasi.
+          {/* Jokester began sneaking into the castle in the middle of the night and
           leaving jokes all over the place: under the king's pillow, in his
           soup, even in the royal toilet. The king was furious, but he couldn't
           seem to stop Jokester. And then, one day, the people of the kingdom
           discovered that the jokes left by Jokester were so funny that they
           couldn't help but laugh. And once they started laughing, they couldn't
-          stop.
+          stop. */}
         </ScrollArea>
       </div>
 
@@ -786,45 +783,41 @@ export default function Home() {
         </Table>
       </div>
 
-
-       
       <div className="m-5">
-<h2 className="m-5 text-center">-----------------Combobox----------------</h2>
-<Popover open={oopen} onOpenChange={setOOpen}>
-      <PopoverTrigger asChild>
-        <Button variant="outline" className="w-[200px] justify-start">
-          Select framework
-           <ChevronsUpDown className="opacity-50" />
-        </Button>
-        
-      </PopoverTrigger>
+        <h2 className="m-5 text-center">
+          -----------------Combobox----------------
+        </h2>
+        <Popover open={oopen} onOpenChange={setOOpen}>
+          <PopoverTrigger asChild>
+            <Button variant="outline" className="w-[200px] justify-start">
+              Select framework
+              <ChevronsUpDown className="opacity-50" />
+            </Button>
+          </PopoverTrigger>
 
+          <PopoverContent className="w-[300px] p-0">
+            <Command>
+              <CommandInput placeholder="Type a command or search..." />
+              <CommandList>
+                <CommandEmpty>No results found.</CommandEmpty>
 
-      
-      <PopoverContent className="w-[300px] p-0">
-        <Command>
-          <CommandInput placeholder="Type a command or search..." />
-          <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            
-              <CommandItem>Calendar</CommandItem>
-              <CommandItem>Search Emoji</CommandItem>
-              <CommandItem>Calculator</CommandItem>
-          
-            
-              <CommandItem>Profile</CommandItem>
-              <CommandItem>Billing</CommandItem>
-              <CommandItem>Settings</CommandItem>
-              
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
+                <CommandItem>Calendar</CommandItem>
+                <CommandItem>Search Emoji</CommandItem>
+                <CommandItem>Calculator</CommandItem>
 
+                <CommandItem>Profile</CommandItem>
+                <CommandItem>Billing</CommandItem>
+                <CommandItem>Settings</CommandItem>
+              </CommandList>
+            </Command>
+          </PopoverContent>
+        </Popover>
       </div>
-  <div className="mb-4 h-[250px]">
+      <div className="mb-4 h-[250px]">
         {/* ------------------------------------ Dropdown ------------------------------------ */}
-<h2 className="m-5 text-center">-----------------Filtering Dropdown----------------</h2>
+        <h2 className="m-5 text-center">
+          -----------------Filtering Dropdown----------------
+        </h2>
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -833,19 +826,16 @@ export default function Home() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56">
-            
-         
             <DropdownMenuCheckboxItem
               checked={showStatusBar}
               onCheckedChange={setShowStatusBar}
             >
-              Status 
+              Status
             </DropdownMenuCheckboxItem>
 
             <DropdownMenuCheckboxItem
               checked={showActivityBar}
               onCheckedChange={setShowActivityBar}
-         
             >
               Email
             </DropdownMenuCheckboxItem>
@@ -860,167 +850,157 @@ export default function Home() {
               checked={showStatusBar}
               onCheckedChange={setShowStatusBar}
             >
-              Amount 
+              Amount
             </DropdownMenuCheckboxItem>
-
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
 
-
-       <div className="p-8">
-      <h1 className="text-3xl font-bold mb-4">Date Range Picker</h1>
-      <div className="h-[300px]">
-
-<DateRangePicker
-        onUpdate={handleUpdate}
-        initialDateFrom={new Date('2024-01-01')}
-        initialDateTo={new Date('2024-01-31')}
-      />
-
+      <div className="p-8">
+        <h1 className="text-3xl font-bold mb-4">Date Range Picker</h1>
+        <div className="h-[300px]">
+          <DateRangePicker
+            onUpdate={handleUpdate}
+            initialDateFrom={new Date("2024-01-01")}
+            initialDateTo={new Date("2024-01-31")}
+          />
+        </div>
+        <div className="mt-6 p-4 border rounded-lg">
+          <p>
+            Selected Range :
+            {dateRange?.from ? dateRange.from.toLocaleDateString() : "N/A"} -
+            {dateRange?.to ? dateRange.to.toLocaleDateString() : "N/A"}
+          </p>
+        </div>
       </div>
-      <div className="mt-6 p-4 border rounded-lg">
-        <p>
-          Selected Range : 
-          {dateRange?.from ? dateRange.from.toLocaleDateString() : "N/A"} - 
-          {dateRange?.to ? dateRange.to.toLocaleDateString() : "N/A"}
-        </p>
+
+      <div className="m-5">
+        <NavigationMenu viewport={false}>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Home</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[200px] gap-2">
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">Sub Item 1</Link>
+                    </NavigationMenuLink>
+                  </li>
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">Sub Item 2</Link>
+                    </NavigationMenuLink>
+                  </li>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[200px] gap-2">
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">Button</Link>
+                    </NavigationMenuLink>
+                  </li>
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">Card</Link>
+                    </NavigationMenuLink>
+                  </li>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Docs</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[200px] gap-2">
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">Getting Started</Link>
+                    </NavigationMenuLink>
+                  </li>
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">API Reference</Link>
+                    </NavigationMenuLink>
+                  </li>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>List</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[200px] gap-2">
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">Item A</Link>
+                    </NavigationMenuLink>
+                  </li>
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">Item B</Link>
+                    </NavigationMenuLink>
+                  </li>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[200px] gap-2">
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">One</Link>
+                    </NavigationMenuLink>
+                  </li>
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">Two</Link>
+                    </NavigationMenuLink>
+                  </li>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[200px] gap-2">
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#" className="flex items-center gap-2">
+                        <CircleHelpIcon />
+                        Backlog
+                      </Link>
+                    </NavigationMenuLink>
+                  </li>
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#" className="flex items-center gap-2">
+                        <CircleIcon />
+                        To Do
+                      </Link>
+                    </NavigationMenuLink>
+                  </li>
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#" className="flex items-center gap-2">
+                        <CircleCheckIcon />
+                        Done
+                      </Link>
+                    </NavigationMenuLink>
+                  </li>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
       </div>
-    </div>
-
-<div className="m-5">
-
-<NavigationMenu viewport={false}>
-  <NavigationMenuList>
-    <NavigationMenuItem>
-      <NavigationMenuTrigger>Home</NavigationMenuTrigger>
-      <NavigationMenuContent>
-        <ul className="grid w-[200px] gap-2">
-          <li>
-            <NavigationMenuLink asChild>
-              <Link href="#">Sub Item 1</Link>
-            </NavigationMenuLink>
-          </li>
-          <li>
-            <NavigationMenuLink asChild>
-              <Link href="#">Sub Item 2</Link>
-            </NavigationMenuLink>
-          </li>
-        </ul>
-      </NavigationMenuContent>
-    </NavigationMenuItem>
-
-    <NavigationMenuItem>
-      <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-      <NavigationMenuContent>
-        <ul className="grid w-[200px] gap-2">
-          <li>
-            <NavigationMenuLink asChild>
-              <Link href="#">Button</Link>
-            </NavigationMenuLink>
-          </li>
-          <li>
-            <NavigationMenuLink asChild>
-              <Link href="#">Card</Link>
-            </NavigationMenuLink>
-          </li>
-        </ul>
-      </NavigationMenuContent>
-    </NavigationMenuItem>
-
-    <NavigationMenuItem>
-      <NavigationMenuTrigger>Docs</NavigationMenuTrigger>
-      <NavigationMenuContent>
-        <ul className="grid w-[200px] gap-2">
-          <li>
-            <NavigationMenuLink asChild>
-              <Link href="#">Getting Started</Link>
-            </NavigationMenuLink>
-          </li>
-          <li>
-            <NavigationMenuLink asChild>
-              <Link href="#">API Reference</Link>
-            </NavigationMenuLink>
-          </li>
-        </ul>
-      </NavigationMenuContent>
-    </NavigationMenuItem>
-
-    <NavigationMenuItem>
-      <NavigationMenuTrigger>List</NavigationMenuTrigger>
-      <NavigationMenuContent>
-        <ul className="grid w-[200px] gap-2">
-          <li>
-            <NavigationMenuLink asChild>
-              <Link href="#">Item A</Link>
-            </NavigationMenuLink>
-          </li>
-          <li>
-            <NavigationMenuLink asChild>
-              <Link href="#">Item B</Link>
-            </NavigationMenuLink>
-          </li>
-        </ul>
-      </NavigationMenuContent>
-    </NavigationMenuItem>
-
-    <NavigationMenuItem>
-      <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
-      <NavigationMenuContent>
-        <ul className="grid w-[200px] gap-2">
-          <li>
-            <NavigationMenuLink asChild>
-              <Link href="#">One</Link>
-            </NavigationMenuLink>
-          </li>
-          <li>
-            <NavigationMenuLink asChild>
-              <Link href="#">Two</Link>
-            </NavigationMenuLink>
-          </li>
-        </ul>
-      </NavigationMenuContent>
-    </NavigationMenuItem>
-
-    <NavigationMenuItem>
-      <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
-      <NavigationMenuContent>
-        <ul className="grid w-[200px] gap-2">
-          <li>
-            <NavigationMenuLink asChild>
-              <Link href="#" className="flex items-center gap-2">
-                <CircleHelpIcon />
-                Backlog
-              </Link>
-            </NavigationMenuLink>
-          </li>
-          <li>
-            <NavigationMenuLink asChild>
-              <Link href="#" className="flex items-center gap-2">
-                <CircleIcon />
-                To Do
-              </Link>
-            </NavigationMenuLink>
-          </li>
-          <li>
-            <NavigationMenuLink asChild>
-              <Link href="#" className="flex items-center gap-2">
-                <CircleCheckIcon />
-                Done
-              </Link>
-            </NavigationMenuLink>
-          </li>
-        </ul>
-      </NavigationMenuContent>
-    </NavigationMenuItem>
-  </NavigationMenuList>
-</NavigationMenu>
-
-
-
-
-</div>
-     
     </div>
   );
 }
