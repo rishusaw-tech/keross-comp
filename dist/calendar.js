@@ -50,7 +50,7 @@ function CalendarDayButton(_a) {
     return (_jsx(Button, Object.assign({ ref: ref, variant: "ghost", size: "icon", "data-day": day.date.toLocaleDateString(), "data-selected-single": modifiers.selected &&
             !modifiers.range_start &&
             !modifiers.range_end &&
-            !modifiers.range_middle, "data-range-start": modifiers.range_start, "data-range-end": modifiers.range_end, "data-range-middle": modifiers.range_middle, className: cn("data-[selected-single=true]:bg-[var(--calender-foreground)] data-[selected-single=true]:text-white", 
+            !modifiers.range_middle, "data-range-start": modifiers.range_start, "data-range-end": modifiers.range_end, "data-range-middle": modifiers.range_middle, className: cn("data-[selected-single=true]:bg-[var(--calender-foreground)] data-[selected-single=true]:text-white dark:data-[selected-single=true]:text-black", 
         // Make sure the background is transparent for dates in the middle of the range
         "data-[range-middle=true]:bg-[var(--ring)] data-[range-middle=true]:text-white root:text-black", 
         // Set background color for the start of the range

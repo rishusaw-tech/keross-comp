@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../components/registry/new-york/globals.css";
 import { ThemeProvider } from "../components/registry/new-york/theme-provider";
 import { ThemeToggleBtn } from "../components/registry/new-york/theme-toggle-btn";
+import { Toaster } from "../components/registry/new-york/sonner"
+
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +42,8 @@ export default function RootLayout({
           <ThemeToggleBtn/>
           {children}
         </ThemeProvider>
+
+         <Toaster />
       </body>
     </html>
   );

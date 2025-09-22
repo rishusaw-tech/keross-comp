@@ -205,7 +205,7 @@ function CalendarDayButton({
       data-range-end={modifiers.range_end}
       data-range-middle={modifiers.range_middle}
       className={cn(
-          "data-[selected-single=true]:bg-[var(--calender-foreground)] data-[selected-single=true]:text-white",
+          "data-[selected-single=true]:bg-[var(--calender-foreground)] data-[selected-single=true]:text-white dark:data-[selected-single=true]:text-black",
         // Make sure the background is transparent for dates in the middle of the range
         "data-[range-middle=true]:bg-[var(--ring)] data-[range-middle=true]:text-white root:text-black",
         // Set background color for the start of the range

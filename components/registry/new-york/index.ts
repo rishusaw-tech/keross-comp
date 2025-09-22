@@ -140,3 +140,8 @@ export type { DateRange } from "react-day-picker";
 
 export {ThemeProvider} from "./theme-provider";
 export {ThemeToggleBtn} from "./theme-toggle-btn";
+import "./globals.css";
+export {Toaster} from "./sonner";
+export {Badge} from "./badge";
+
+

@@ -363,6 +363,33 @@
       "files": [
         { "path": "registry/new-york/tooltip.tsx", "type": "registry:ui" }
       ]
+    },
+
+{
+      "name": "badge",
+      "type": "registry:component",
+      "title": "Badge",
+      "description": "Tooltip using @radix-ui/react-tooltip",
+      "externalDependencies": {
+        "@radix-ui/react-tooltip": "^1.2.8"
+      },
+      "files": [
+        { "path": "registry/new-york/badge.tsx", "type": "registry:ui" }
+      ]
+    },
+
+    {
+      "name": "sonnner",
+      "type": "registry:component",
+      "title": "Tooltip",
+      "description": "Tooltip using @radix-ui/react-tooltip",
+      "externalDependencies": {
+        "@radix-ui/react-tooltip": "^1.2.8"
+      },
+      "files": [
+        { "path": "registry/new-york/sonner.tsx", "type": "registry:ui" }
+      ]
     }
+
   ]
 }

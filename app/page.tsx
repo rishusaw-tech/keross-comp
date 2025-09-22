@@ -1,4 +1,7 @@
 "use client";
+import { AlertCircleIcon, BadgeCheckIcon, CheckIcon } from "lucide-react"
+
+import { Badge } from "../components/registry/new-york/badge";
 
 import { Checkbox } from "../components/registry/new-york/checkbox";
 import { Separator } from "../components/registry/new-york/separator";
@@ -8,6 +11,9 @@ import { Slider } from "../components/registry/new-york/slider";
 import { Switch } from "../components/registry/new-york/switch";
 import { RadioGroup, RadioGroupItem } from "../components/registry/new-york/radio-group";
 import { ScrollArea } from "../components/registry/new-york/scroll-area";
+import { toast } from "sonner";
+import { Workflow  } from "../components/registry/new-york/workflow/workflow1";
+import { WorkflowStep } from "../components/registry/new-york/workflow/types";
 
 import {
   NavigationMenu,
@@ -21,6 +27,8 @@ import {
   NavigationMenuViewport,
 } from "../components/registry/new-york/navigation-menu";
 
+import { Workflow as wk} from "../components/registry/new-york/workflow";
+import { WorkflowStep as wks } from "./workflow"
 import {
   Table,
   TableBody,
@@ -97,6 +105,8 @@ import {
   DialogTrigger,
 } from "../components/registry/new-york/dialog";
 
+
+
 import { DateRangePicker } from "../components/registry/new-york/date-range-picker";
 
 // Utilities
@@ -123,6 +133,7 @@ import {
   X,
 } from "lucide-react";
 
+import { WorkflowAction } from "../app/workflow";
 
 export default function Home() {
   const frameworks = [
@@ -147,6 +158,29 @@ export default function Home() {
       label: "Astro",
     },
   ];
+
+ const steps: WorkflowStep[] = [
+  { id: "1", title: "Won", status: "OUTSTANDING" },
+  {
+    id: "2",
+    title: "Client Review",
+    status: "IN PROGRESS", // must match StepStatus exactly
+    dropdownOptions: [
+      { label: "Won", value: "won" },
+      { label: "Lost", value: "lost" },
+      { label: "Lost", value: "lost" },
+      { label: "Lost", value: "lost" },
+      { label: "Lost", value: "lost" },
+    ],
+    selectedOption: "won",
+  },
+  { id: "3", title: "Quotation", status: "COMPLETED" },
+  { id: "4", title: "Product", status: "COMPLETED" },
+  { id: "5", title: "Deal", status: "COMPLETED" },
+   { id: "5", title: "Deal", status: "COMPLETED" },
+    { id: "5", title: "Deal", status: "COMPLETED" },
+];
+
   const [open, setOpen] = React.useState(false);
   const [oopen, setOOpen] = React.useState(false);
   const [date, setDate] = React.useState<Date | undefined>(undefined);
@@ -262,10 +296,10 @@ export default function Home() {
       {/* ------------------------------------ Buttons ------------------------------------ */}
       <div className="mb-2 text-2xl">Buttons</div>
       <div className="flex flex-row gap-5 mb-2">
-        <Button size="default" variant="outline">
+        <Button size="default" variant="secondary">
           <Share2 /> Share
         </Button>
-        <Button size="default" variant="outline">
+        <Button size="default" variant="secondary">
           <Save /> Save
         </Button>
         <Button size="default" variant={"default"}>
@@ -273,10 +307,10 @@ export default function Home() {
         </Button>
       </div>
       <div className="flex flex-row gap-5 mb-5">
-        <Button size="circular" variant="outline">
+        <Button size="circular" variant="secondary">
           <X />
         </Button>
-        <Button size="circular" variant="secondary">
+        <Button size="circular" variant="outline">
           <X />
         </Button>
       </div>
@@ -588,7 +622,7 @@ export default function Home() {
 
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant="outline">Open popover</Button>
+            <Button variant="secondary">Open popover</Button>
           </PopoverTrigger>
           <PopoverContent className="w-80">
             <div className="grid gap-4">
@@ -789,7 +823,7 @@ export default function Home() {
         </h2>
         <Popover open={oopen} onOpenChange={setOOpen}>
           <PopoverTrigger asChild>
-            <Button variant="outline" className="w-[200px] justify-start">
+            <Button variant="secondary" className="w-[200px] justify-start">
               Select framework
               <ChevronsUpDown className="opacity-50" />
             </Button>
@@ -821,7 +855,7 @@ export default function Home() {
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant={"outline"} className="bg-card">
+            <Button variant={"secondary"}>
               filter
             </Button>
           </DropdownMenuTrigger>
@@ -1001,6 +1035,43 @@ export default function Home() {
           </NavigationMenuList>
         </NavigationMenu>
       </div>
+
+<div>
+<Button
+      variant="outline"
+      onClick={() =>
+        toast("Event has been created", {
+          description: "Sunday, December 03, 2023 at 9:00 AM",
+          action: {
+            label: "Undo",
+            onClick: () => console.log("Undo"),
+          },
+        })
+      }
+    >
+      Show Toast
+    </Button>
+
+</div>
+
+
+
+
+    <div className="flex flex-col items-center gap-2 m-5">
+      <div className="flex w-full flex-wrap gap-2">
+        <Badge variant="verified">Verified</Badge>
+        <Badge variant="secondary">Secondary</Badge>
+        <Badge variant="destructive">Destructive</Badge>
+        <Badge variant="outline">Outline</Badge>
+      </div>
+
+    </div>
+  
+            <div>
+      <Workflow title="Deal Workflow" steps={steps} />
+    </div>
+
+
     </div>
   );
 }
