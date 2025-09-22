@@ -10,13 +10,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[var(--calender-foreground)] text-[var(--contrast-color)] shadow-xs hover:bg-primary/90 hover:text-black",
+          "bg-[var(--calender-foreground)] text-[var(--btn-default)] shadow-xs hover:bg-[var(--calender-foreground)]/60 keross:hover:bg-[#1F3ABA99]",
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
-          "border bg-btn-outlined shadow-xs hover:bg-accent hover:text-foreground bg-[#1D283A]",
+          "border bg-btn-outlined shadow-xs hover:bg-accent hover:text-foreground ",
         secondary:
-          "bg-[var(--btn-secondary)] text-secondary-foreground shadow-xs hover:bg-secondary/80",
+          "bg-[var(--btn-secondary)] text-secondary-foreground shadow-xs hover:bg-[var(--btn-secondary)]/20 border border-input",
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
 
