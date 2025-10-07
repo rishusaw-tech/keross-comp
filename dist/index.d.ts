@@ -34,3 +34,4 @@ export { ThemeToggleBtn } from "./theme-toggle-btn";
 import "./globals.css";
 export { Toaster } from "./sonner";
 export { Badge } from "./badge";
+export { Workflow } from "./workflow1";

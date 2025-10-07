@@ -12,8 +12,8 @@ import { Switch } from "../components/registry/new-york/switch";
 import { RadioGroup, RadioGroupItem } from "../components/registry/new-york/radio-group";
 import { ScrollArea } from "../components/registry/new-york/scroll-area";
 import { toast } from "sonner";
-import { Workflow  } from "../components/registry/new-york/workflow/workflow1";
-import { WorkflowStep } from "../components/registry/new-york/workflow/types";
+import { Workflow  } from "../components/registry/new-york/workflow1";
+import { WorkflowStep } from "./types";
 
 import {
   NavigationMenu,
@@ -27,7 +27,7 @@ import {
   NavigationMenuViewport,
 } from "../components/registry/new-york/navigation-menu";
 
-import { Workflow as wk} from "../components/registry/new-york/workflow";
+
 import { WorkflowStep as wks } from "./workflow"
 import {
   Table,

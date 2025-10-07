@@ -389,6 +389,17 @@
       "files": [
         { "path": "registry/new-york/sonner.tsx", "type": "registry:ui" }
       ]
+    },
+  
+    {
+      "name": "workflow1",
+      "type": "registry:component",
+      "title": "Workflow",
+      "description": "A component to display a workflow with steps, progress bar, and optional dropdowns for each step.",
+      "files": [
+        { "path": "registry/new-york/workflow/workflow1.tsx", "type": "registry:ui" }
+      
+      ]
     }
 
   ]
